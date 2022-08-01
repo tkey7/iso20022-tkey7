@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Message xmlns="urn:tkeysettlement"
+    xmlns:tscisn="urn:iso:std:iso:20022:tech:xsd:tkey.001.001.01"
+    xmlns:head="urn:iso:std:iso:20022:tech:xsd:head.001.001.03">
+    <AppHdr>
+        <head:Fr>
+            <head:FIId>
+                <head:FinInstnId>
+                    <!-- Зарегистрированный код BIC отправителя сообщения -->
+                    <head:BICFI>{bicfi}</head:BICFI>
+                    <head:Othr>
+                        <!-- Идентификатор Участника отправителя сообщения в TKEY7 -->
+                        <head:Id>{member_identification}</head:Id>
+                        <!-- Издатель -->
+                        <head:Issr>TKEY7</head:Issr>
+                    </head:Othr>
+                </head:FinInstnId>
+            </head:FIId>
+        </head:Fr>
+        <head:To>
+            <head:FIId>
+                <head:FinInstnId>
+                    <!-- Идентификатор точки обмена сообщения — константа -->
+                    <head:BICFI>TKEYINTL07X</head:BICFI>
+                    <head:Othr>
+                        <!-- Идентификатор TKEY7 в системе — константа -->
+                        <head:Id>tkeymain</head:Id>
+                        <!-- Издатель -->
+                        <head:Issr>TKEY7</head:Issr>
+                    </head:Othr>
+                </head:FinInstnId>
+            </head:FIId>
+        </head:To>
+        <!-- Уникальный идентификатор бизнес-сообщения -->
+        <head:BizMsgIdr>{BizMsgIdr}</head:BizMsgIdr>
+        <!-- Идентификатор сообщения — константа -->
+        <head:MsgDefIdr>tkey.001.001.01</head:MsgDefIdr>
+        <!-- Дата и время создания бизнес-сообщения в формате ISO 8601 -->
+        <head:CreDt>{CreDt}</head:CreDt>
+    </AppHdr>
+    <CstmrIdStsNtfctn>
+        <tscisn:GrpHdr>
+            <!-- Уникальный идентификатор сообщения -->
+            <tscisn:MsgId>{MsgId}</tscisn:MsgId>
+            <!-- Дата и время создания сообщения в формате ISO 8601 -->
+            <tscisn:CreDtTm>{CreDtTm}</tscisn:CreDtTm>
+            <!-- Количество транзакций — константа -->
+            <tscisn:NbOfTxs>1</tscisn:NbOfTxs>
+            <tscisn:SttlmInf>
+                <!-- Идентификатор способа осуществления расчётов -->
+                <tscisn:SttlmMtd>{interbank_settlement_method}</tscisn:SttlmMtd>
+                <tscisn:SttlmAcct>
+                    <tscisn:Id>
+                        <tscisn:Othr>
+                            <!-- Идентификатор Участника ПФУ в TKEY7 -->
+                            <tscisn:Id>{member_identification}</tscisn:Id>
+                        </tscisn:Othr>
+                    </tscisn:Id>
+                    <!-- Идентификатор Цифрового счёта Участника ПФУ в TKEY7 -->
+                    <tscisn:Nm>{account_identification}</tscisn:Nm>
+                </tscisn:SttlmAcct>
+            </tscisn:SttlmInf>
+            <!-- Инструктирующий агент -->
+            <tscisn:InstgAgt>
+                <tscisn:FinInstnId>
+                    <!-- Зарегистрированный код BIC Участника ПФУ -->
+                    <tscisn:BICFI>{bicfi}</tscisn:BICFI>
+                    <tscisn:Othr>
+                        <!-- Идентификатор Участника ПФУ в TKEY7 -->
+                        <tscisn:Id>{member_identification}</tscisn:Id>
+                    </tscisn:Othr>
+                </tscisn:FinInstnId>
+            </tscisn:InstgAgt>
+            <!-- Инструктируемый агент -->
+            <tscisn:InstdAgt>
+                <tscisn:FinInstnId>
+                    <!-- Зарегистрированный код BIC Участника ОФУ -->
+                    <tscisn:BICFI>{bicfi}</tscisn:BICFI>
+                    <tscisn:Othr>
+                        <!-- Идентификатор Участника ОФУ в TKEY7 -->
+                        <tscisn:Id>{member_identification}</tscisn:Id>
+                    </tscisn:Othr>
+                </tscisn:FinInstnId>
+            </tscisn:InstdAgt>
+        </tscisn:GrpHdr>
+        <tscisn:AcctInfAndIdSts>
+            <!-- Уникальный идентификатор уведомления -->
+            <tscisn:Id>{Id}</tscisn:Id>
+            <tscisn:AcctIdInf>
+                <!-- Адрес счёта, соответствующий идентификатору Цифрового счёта {account_identification}, на который будет осуществлён перевод в распределённом реестре -->
+                <tscisn:SttlmAcctId>{distributed_ledger_account_address}</tscisn:SttlmAcctId>
+                <!-- Статус идентификации реквизитов конечного Бенефициара (ACTC, RJCT) -->
+                <tscisn:CstmrAcctIdSts>{CstmrAcctIdSts}</tscisn:CstmrAcctIdSts>
+                <tscisn:PmtId>
+                    <!-- Уникальный идентификатор инструкции идентификации счёта конечного Бенефициара -->
+                    <tscisn:InstrId>{InstrId}</tscisn:InstrId>
+                    <!-- Уникальный сквозной идентификатор -->
+                    <tscisn:EndToEndId>{EndToEndId}</tscisn:EndToEndId>
+                </tscisn:PmtId>
+            </tscisn:AcctIdInf>
+            <tscisn:CstmrIdInf>
+                <!-- Статус KYC-идентификации Плательщика и конечного Бенефициара (ACTC, RJCT) -->
+                <tscisn:KYCSts>{KYCSts}</tscisn:KYCSts>
+                <!-- Статус AML-идентификации Плательщика и конечного Бенефициара (ACTC, RJCT) -->
+                <tscisn:AMLSts>{AMLSts}</tscisn:AMLSts>
+                <tscisn:PmtId>
+                    <!-- Уникальный идентификатор инструкции проведения идентификации Плательщика и конечного Бенефициара в соответствии с комплаенс-требованиями -->
+                    <tscisn:InstrId>{InstrId}</tscisn:InstrId>
+                    <!-- Уникальный сквозной идентификатор проведения идентификации Плательщика и конечного Бенефициара в соответствии с комплаенс-требованиями -->
+                    <tscisn:EndToEndId>{EndToEndId}</tscisn:EndToEndId>
+                </tscisn:PmtId>
+            </tscisn:CstmrIdInf>
+        </tscisn:AcctInfAndIdSts>
+    </CstmrIdStsNtfctn>
+</Message>

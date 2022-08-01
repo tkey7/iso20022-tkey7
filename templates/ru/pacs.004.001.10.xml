@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Message xmlns="urn:tkeysettlement"
+    xmlns:tspr="urn:iso:std:iso:20022:tech:xsd:pacs.004.001.10"
+    xmlns:head="urn:iso:std:iso:20022:tech:xsd:head.001.001.03">
+    <AppHdr>
+        <head:Fr>
+            <head:FIId>
+                <head:FinInstnId>
+                    <!-- Зарегистрированный код BIC отправителя сообщения -->
+                    <head:BICFI>{bicfi}</head:BICFI>
+                    <head:Othr>
+                        <!-- Идентификатор Участника отправителя сообщения в TKEY7 -->
+                        <head:Id>{member_identification}</head:Id>
+                        <!-- Издатель -->
+                        <head:Issr>TKEY7</head:Issr>
+                    </head:Othr>
+                </head:FinInstnId>
+            </head:FIId>
+        </head:Fr>
+        <head:To>
+            <head:FIId>
+                <head:FinInstnId>
+                    <!-- Идентификатор точки обмена сообщения — константа -->
+                    <head:BICFI>TKEYINTL07X</head:BICFI>
+                    <head:Othr>
+                        <!-- Идентификатор TKEY7 в системе — константа -->
+                        <head:Id>tkeymain</head:Id>
+                        <!-- Издатель -->
+                        <head:Issr>TKEY7</head:Issr>
+                    </head:Othr>
+                </head:FinInstnId>
+            </head:FIId>
+        </head:To>
+        <!-- Уникальный идентификатор бизнес-сообщения -->
+        <head:BizMsgIdr>{BizMsgIdr}</head:BizMsgIdr>
+        <!-- Идентификатор сообщения — константа -->
+        <head:MsgDefIdr>pacs.004.001.10</head:MsgDefIdr>
+        <!-- Дата и время создания бизнес-сообщения в формате ISO 8601 -->
+        <head:CreDt>{CreDt}</head:CreDt>
+    </AppHdr>
+    <PmtRtr>
+        <tspr:GrpHdr>
+            <!-- Уникальный идентификатор сообщения -->
+            <tspr:MsgId>{MsgId}</tspr:MsgId>
+            <!-- Дата и время создания сообщения в формате ISO 8601 -->
+            <tspr:CreDtTm>{CreDtTm}</tspr:CreDtTm>
+            <!-- Количество транзакций — константа -->
+            <tspr:NbOfTxs>1</tspr:NbOfTxs>
+            <tspr:SttlmInf>
+                <!-- Идентификатор способа осуществления расчётов -->
+                <tspr:SttlmMtd>{interbank_settlement_method}</tspr:SttlmMtd>
+                <tspr:SttlmAcct>
+                    <tspr:Id>
+                        <tspr:Othr>
+                            <!-- Идентификатор Участника ПФУ в TKEY7 -->
+                            <tspr:Id>{member_identification}</tspr:Id>
+                        </tspr:Othr>
+                    </tspr:Id>
+                    <!-- Идентификатор Цифрового счёта Участника ПФУ в TKEY7 -->
+                    <tspr:Nm>{account_identification}</tspr:Nm>
+                </tspr:SttlmAcct>
+            </tspr:SttlmInf>
+            <!-- Инструктирующий агент -->
+            <tspr:InstgAgt>
+                <tspr:FinInstnId>
+                    <!-- Зарегистрированный код BIC Участника ПФУ -->
+                    <tspr:BICFI>{bicfi}</tspr:BICFI>
+                    <tspr:Othr>
+                        <!-- Идентификатор Участника ПФУ в TKEY7 -->
+                        <tspr:Id>{member_identification}</tspr:Id>
+                    </tspr:Othr>
+                </tspr:FinInstnId>
+            </tspr:InstgAgt>
+            <!-- Инструктируемый агент -->
+            <tspr:InstdAgt>
+                <tspr:FinInstnId>
+                    <!-- Зарегистрированный код BIC Участника ОФУ -->
+                    <tspr:BICFI>{bicfi}</tspr:BICFI>
+                    <tspr:Othr>
+                        <!-- Идентификатор Участника ОФУ в TKEY7 -->
+                        <tspr:Id>{member_identification}</tspr:Id>
+                    </tspr:Othr>
+                </tspr:FinInstnId>
+            </tspr:InstdAgt>
+        </tspr:GrpHdr>
+        <tspr:OrgnlGrpInf>
+            <!-- Уникальный идентификатор исходного сообщения -->
+            <tspr:OrgnlMsgId>{OrgnlMsgId}</tspr:OrgnlMsgId>
+            <!-- Наименование типа исходного сообщения -->
+            <tspr:OrgnlMsgNmId>{OrgnlMsgNmId}</tspr:OrgnlMsgNmId>
+            <!-- Дата и время создания исходного сообщения в формате ISO 8601 -->
+            <tspr:OrgnlCreDtTm>{OrgnlCreDtTm}</tspr:OrgnlCreDtTm>
+            <tspr:RtrRsnInf>
+                <tspr:Rsn>
+                    <!-- Код идентификации причины возврата в TKEY7 — «0001» для возврата ЦРО и «0002» для остальных сценариев -->
+                    <tspr:Cd>{Cd}</tspr:Cd>
+                </tspr:Rsn>
+                <!-- Дополнительная информация  -->
+                <tspr:AddtlInf>{AddtlInf}</tspr:AddtlInf>
+            </tspr:RtrRsnInf>
+        </tspr:OrgnlGrpInf>
+        <tspr:TxInf>
+            <!-- Уникальный идентификатор возвращаемой транзакции -->
+            <tspr:RtrId>{RtrId}</tspr:RtrId>
+            <!-- Уникальный идентификатор исходной инструкции -->
+            <tspr:OrgnlInstrId>{OrgnlInstrId}</tspr:OrgnlInstrId>
+            <!-- Уникальный исходный сквозной идентификатор -->
+            <tspr:OrgnlEndToEndId>{OrgnlEndToEndId}</tspr:OrgnlEndToEndId>
+            <!-- Уникальный идентификатор исходной транзакции -->
+            <tspr:OrgnlTxId>{OrgnlTxId}</tspr:OrgnlTxId>
+            <!-- Идентификатор расчётного актива в TKEY7 и исходная сумма межбанковского перевода -->
+            <tspr:OrgnlIntrBkSttlmAmt Ccy="{asset_code_identification}">{interbank_settlement_amount}</tspr:OrgnlIntrBkSttlmAmt>
+            <!-- Идентификатор расчётного актива в TKEY7 и возвращаемая сумма межбанковского перевода -->
+            <tspr:RtrdIntrBkSttlmAmt Ccy="{asset_code_identification}">{RtrdIntrBkSttlmAmt}</tspr:RtrdIntrBkSttlmAmt>
+            <!-- Дата межбанковского расчёта -->
+            <tspr:IntrBkSttlmDt>{IntrBkSttlmDt}</tspr:IntrBkSttlmDt>
+            <!-- Возвращаемая сумма до вычета комиссии и трёхбуквенный код валюты -->
+            <tspr:RtrdInstdAmt Ccy="{Ccy}">{instructed_amount}</tspr:RtrdInstdAmt>
+            <!-- Сторона, которая оплачивает комиссию -->
+            <tspr:ChrgBr>{ChrgBr}</tspr:ChrgBr>
+            <tspr:ChrgsInf>
+                <!-- Идентификатор расчётного актива в TKEY7 и сумма комиссии -->
+                <tspr:Amt Ccy="{asset_code_identification}">{Amt}</tspr:Amt>
+                <tspr:Agt>
+                    <tspr:FinInstnId>
+                        <!-- Зарегистрированный код BIC Участника, который взимает комиссию -->
+                        <tspr:BICFI>{bicfi}</tspr:BICFI>
+                        <tspr:Othr>
+                            <!-- Идентификатор Участника в TKEY7, который взимает комиссию -->
+                            <tspr:Id>{member_identification}</tspr:Id>
+                        </tspr:Othr>
+                    </tspr:FinInstnId>
+                </tspr:Agt>
+            </tspr:ChrgsInf>
+            <tspr:RtrRsnInf>
+                <tspr:Orgtr>
+                    <!-- Наименование Плательщика -->
+                    <tspr:Nm>{Nm}</tspr:Nm>
+                </tspr:Orgtr>
+                <tspr:Rsn>
+                    <!-- Код причины возврата -->
+                    <tspr:Cd>{Prtry}</tspr:Cd>
+                    <!-- Короткая причина возврата или время расчёта вне TKEY7 -->
+                    <tspr:Prtry>{Prtry}</tspr:Prtry>
+                </tspr:Rsn>
+                <!-- Подробная информация о причине возврате -->
+                <tspr:AddtlInf>{AddtlInf}</tspr:AddtlInf>
+            </tspr:RtrRsnInf>
+            <tspr:OrgnlTxRef>
+                <tspr:SttlmInf>
+                    <!-- Идентификатор способа осуществления расчётов исходной транзакции -->
+                    <tspr:SttlmMtd>{interbank_settlement_method}</tspr:SttlmMtd>
+                    <tspr:SttlmAcct>
+                        <tspr:Id>
+                            <tspr:Othr>
+                                <!-- Идентификатор Участника ОФУ в TKEY7 -->
+                                <tspr:Id>{member_identification}</tspr:Id>
+                            </tspr:Othr>
+                        </tspr:Id>
+                        <!-- Идентификатор Цифрового счёта Участника ОФУ в TKEY7  -->
+                        <tspr:Nm>{account_identification}</tspr:Nm>
+                    </tspr:SttlmAcct>
+                </tspr:SttlmInf>
+                <tspr:PmtTpInf>
+                    <tspr:SvcLvl>
+                        <!-- Идентификатор эмитента возвращаемого актива в TKEY7 -->
+                        <tspr:Prtry>{member_identification}</tspr:Prtry>
+                    </tspr:SvcLvl>
+                </tspr:PmtTpInf>
+            </tspr:OrgnlTxRef>
+        </tspr:TxInf>
+    </PmtRtr>
+</Message>

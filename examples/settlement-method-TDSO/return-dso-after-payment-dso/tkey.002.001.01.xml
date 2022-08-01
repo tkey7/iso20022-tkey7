@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Message xmlns="urn:tkeysettlement"
+    xmlns:tstsn="urn:iso:std:iso:20022:tech:xsd:tkey.002.001.01"
+    xmlns:head="urn:iso:std:iso:20022:tech:xsd:head.001.001.03">
+    <AppHdr>
+        <head:Fr>
+            <head:FIId>
+                <head:FinInstnId>
+                    <head:BICFI>BLUERUMM001</head:BICFI>
+                    <head:Othr>
+                        <head:Id>bluebank</head:Id>
+                        <head:Issr>TKEY7</head:Issr>
+                    </head:Othr>
+                </head:FinInstnId>
+            </head:FIId>
+        </head:Fr>
+        <head:To>
+            <head:FIId>
+                <head:FinInstnId>
+                    <head:BICFI>TKEYINTL07X</head:BICFI>
+                    <head:Othr>
+                        <head:Id>tkeymain</head:Id>
+                        <head:Issr>TKEY7</head:Issr>
+                    </head:Othr>
+                </head:FinInstnId>
+            </head:FIId>
+        </head:To>
+        <head:BizMsgIdr>BTKEY20220719BLUERUMM001B3310167024</head:BizMsgIdr>
+        <head:MsgDefIdr>tkey.002.001.01</head:MsgDefIdr>
+        <head:CreDt>2022-07-19T10:16:49Z</head:CreDt>
+        <Sgntr xmlns="urn:iso:std:iso:20022:tech:xsd:head.001.001.03">
+            <Signature xmlns="http://www.w3.org/2000/09/xmldsig#">
+                <SignedInfo xmlns="http://www.w3.org/2000/09/xmldsig#">
+                    <CanonicalizationMethod xmlns="http://www.w3.org/2000/09/xmldsig#" Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" />
+                    <SignatureMethod xmlns="http://www.w3.org/2000/09/xmldsig#" Algorithm="http://www.w3.org/2009/xmldsig11#rsa-sha256" />
+                    <Reference xmlns="http://www.w3.org/2000/09/xmldsig#">
+                        <Transforms xmlns="http://www.w3.org/2000/09/xmldsig#">
+                            <Transform xmlns="http://www.w3.org/2000/09/xmldsig#" Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" />
+                            <Transform xmlns="http://www.w3.org/2000/09/xmldsig#" Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" />
+                        </Transforms>
+                        <DigestMethod xmlns="http://www.w3.org/2000/09/xmldsig#" Algorithm="http://www.w3.org/2001/04/xmlenc#sha256" />
+                        <DigestValue xmlns="http://www.w3.org/2000/09/xmldsig#">lk+X0DMkXuwNE9dfsTQ8q8zMCUSkH3HNUgagpQByddE=</DigestValue>
+                    </Reference>
+                </SignedInfo>
+                <SignatureValue xmlns="http://www.w3.org/2000/09/xmldsig#">LRj/Z5iLecJ0KxId9zAGRkhDqfN7/jjK9nH3j+PgJK6QSF6yTPbIduL5iaVexm0dE9++aGkt0QeSjlPcAoShDw==</SignatureValue>
+                <KeyInfo xmlns="http://www.w3.org/2000/09/xmldsig#">
+                    <X509Data xmlns="http://www.w3.org/2000/09/xmldsig#">
+                        <X509Certificate xmlns="http://www.w3.org/2000/09/xmldsig#">TBGSR67NVA4KH3XBODB4P6JQ6AEZIB73OH2WTBPMAHS7D4EFCKFS6NXN</X509Certificate>
+                    </X509Data>
+                </KeyInfo>
+            </Signature>
+        </Sgntr>
+    </AppHdr>
+    <TxSttlmNtfctn>
+        <tstsn:GrpHdr>
+            <tstsn:MsgId>20220719USDDSO8710865699BLUERUMM001</tstsn:MsgId>
+            <tstsn:CreDtTm>2022-07-19T10:16:49</tstsn:CreDtTm>
+            <tstsn:NbOfTxs>1</tstsn:NbOfTxs>
+            <tstsn:SttlmInf>
+                <tstsn:SttlmMtd>TDSO</tstsn:SttlmMtd>
+                <tstsn:SttlmAcct>
+                    <tstsn:Id>
+                        <tstsn:Othr>
+                            <tstsn:Id>bluebank</tstsn:Id>
+                        </tstsn:Othr>
+                    </tstsn:Id>
+                    <tstsn:Nm>emission</tstsn:Nm>
+                </tstsn:SttlmAcct>
+            </tstsn:SttlmInf>
+            <tstsn:PmtTpInf>
+                <tstsn:SvcLvl>
+                    <tstsn:Prtry>bluebank</tstsn:Prtry>
+                </tstsn:SvcLvl>
+            </tstsn:PmtTpInf>
+            <tstsn:InstgAgt>
+                <tstsn:FinInstnId>
+                    <tstsn:BICFI>BLUERUMM001</tstsn:BICFI>
+                    <tstsn:Othr>
+                        <tstsn:Id>bluebank</tstsn:Id>
+                    </tstsn:Othr>
+                </tstsn:FinInstnId>
+            </tstsn:InstgAgt>
+            <tstsn:InstdAgt>
+                <tstsn:FinInstnId>
+                    <tstsn:BICFI>GRENCHZZ002</tstsn:BICFI>
+                    <tstsn:Othr>
+                        <tstsn:Id>greenbank</tstsn:Id>
+                    </tstsn:Othr>
+                </tstsn:FinInstnId>
+            </tstsn:InstdAgt>
+        </tstsn:GrpHdr>
+        <tstsn:TxSttlmInf>
+            <tstsn:OrgnlGrpInf>
+                <tstsn:OrgnlMsgId>20220717USDDSO0123456789BLUERUMM001</tstsn:OrgnlMsgId>
+                <tstsn:OrgnlMsgNmId>pacs.008.001.09</tstsn:OrgnlMsgNmId>
+                <tstsn:OrgnlCreDtTm>2022-07-17T13:22:01</tstsn:OrgnlCreDtTm>
+            </tstsn:OrgnlGrpInf>
+            <tstsn:TxInf>
+                <tstsn:SttlmId>20220719USDDSO8710865699BLUERUMM001</tstsn:SttlmId>
+                <tstsn:OrgnlInstrId>USDDSO20220717BLUERUMM001B123456789</tstsn:OrgnlInstrId>
+                <tstsn:OrgnlEndToEndId>db0a130d58c749e9a884a90b2b47e047</tstsn:OrgnlEndToEndId>
+                <tstsn:OrgnlTxId>73b8eda0fcea4a2f934d2c774639e0eb</tstsn:OrgnlTxId>
+                <tstsn:ActlSttlmAmt Ccy="USD">50000</tstsn:ActlSttlmAmt>
+                <tstsn:OrgnlTxRef>
+                    <tstsn:IntrBkSttlmAmt Ccy="USDDSO">50000</tstsn:IntrBkSttlmAmt>
+                    <tstsn:Dbtr>
+                        <tstsn:Nm>COMPANY AAA INC</tstsn:Nm>
+                        <tstsn:PstlAdr>
+                            <tstsn:StrtNm>Presnenskaya Embankment</tstsn:StrtNm>
+                            <tstsn:BldgNb>12</tstsn:BldgNb>
+                            <tstsn:PstCd>123112</tstsn:PstCd>
+                            <tstsn:TwnNm>MOSCOW</tstsn:TwnNm>
+                            <tstsn:Ctry>RU</tstsn:Ctry>
+                        </tstsn:PstlAdr>
+                    </tstsn:Dbtr>
+                    <tstsn:Cdtr>
+                        <tstsn:Nm>COMPANY BBB INC</tstsn:Nm>
+                        <tstsn:PstlAdr>
+                            <tstsn:StrtNm>HOCHSTRASSE</tstsn:StrtNm>
+                            <tstsn:BldgNb>27</tstsn:BldgNb>
+                            <tstsn:PstCd>8022</tstsn:PstCd>
+                            <tstsn:TwnNm>ZURICH</tstsn:TwnNm>
+                            <tstsn:Ctry>CH</tstsn:Ctry>
+                        </tstsn:PstlAdr>
+                    </tstsn:Cdtr>
+                </tstsn:OrgnlTxRef>
+            </tstsn:TxInf>
+        </tstsn:TxSttlmInf>
+    </TxSttlmNtfctn>
+</Message>

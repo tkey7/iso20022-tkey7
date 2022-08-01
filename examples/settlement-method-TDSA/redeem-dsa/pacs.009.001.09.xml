@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Message xmlns="urn:tkeysettlement"
+    xmlns:tsct="urn:iso:std:iso:20022:tech:xsd:pacs.009.001.09"
+    xmlns:head="urn:iso:std:iso:20022:tech:xsd:head.001.001.03">
+    <AppHdr>
+        <head:Fr>
+            <head:FIId>
+                <head:FinInstnId>
+                    <head:BICFI>GRENCHZZ002</head:BICFI>
+                    <head:Othr>
+                        <head:Id>greenbank</head:Id>
+                        <head:Issr>TKEY7</head:Issr>
+                    </head:Othr>
+                </head:FinInstnId>
+            </head:FIId>
+        </head:Fr>
+        <head:To>
+            <head:FIId>
+                <head:FinInstnId>
+                    <head:BICFI>TKEYINTL07X</head:BICFI>
+                    <head:Othr>
+                        <head:Id>tkeymain</head:Id>
+                        <head:Issr>TKEY7</head:Issr>
+                    </head:Othr>
+                </head:FinInstnId>
+            </head:FIId>
+        </head:To>
+        <head:BizMsgIdr>BTKEY20220720GRENCHZZ002B9194560468</head:BizMsgIdr>
+        <head:MsgDefIdr>pacs.009.001.09</head:MsgDefIdr>
+        <head:CreDt>2022-07-20T09:53:40Z</head:CreDt>
+        <Sgntr xmlns="urn:iso:std:iso:20022:tech:xsd:head.001.001.03">
+            <Signature xmlns="http://www.w3.org/2000/09/xmldsig#">
+                <SignedInfo xmlns="http://www.w3.org/2000/09/xmldsig#">
+                    <CanonicalizationMethod xmlns="http://www.w3.org/2000/09/xmldsig#" Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" />
+                    <SignatureMethod xmlns="http://www.w3.org/2000/09/xmldsig#" Algorithm="http://www.w3.org/2009/xmldsig11#rsa-sha256" />
+                    <Reference xmlns="http://www.w3.org/2000/09/xmldsig#">
+                        <Transforms xmlns="http://www.w3.org/2000/09/xmldsig#">
+                            <Transform xmlns="http://www.w3.org/2000/09/xmldsig#" Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" />
+                            <Transform xmlns="http://www.w3.org/2000/09/xmldsig#" Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" />
+                        </Transforms>
+                        <DigestMethod xmlns="http://www.w3.org/2000/09/xmldsig#" Algorithm="http://www.w3.org/2001/04/xmlenc#sha256" />
+                        <DigestValue xmlns="http://www.w3.org/2000/09/xmldsig#">YGsev+LnzEJhpzNVZtzv+lEepMOouuFf1/9wA0U3eIA=</DigestValue>
+                    </Reference>
+                </SignedInfo>
+                <SignatureValue xmlns="http://www.w3.org/2000/09/xmldsig#">uCEW989DBan7kYfOsz877One5RaW+VZChps8VK/2iaQrn3hWvLQlyvvQcEybMfx/5PiEtwtFy5t6JPOjQxvHAg==</SignatureValue>
+                <KeyInfo xmlns="http://www.w3.org/2000/09/xmldsig#">
+                    <X509Data xmlns="http://www.w3.org/2000/09/xmldsig#">
+                        <X509Certificate xmlns="http://www.w3.org/2000/09/xmldsig#">TBOJMA3GPIL6XDM3PJIFLXWOLWWVACTRWV2GHMB3HZ5PS7LLZLSGH5GR</X509Certificate>
+                    </X509Data>
+                </KeyInfo>
+            </Signature>
+        </Sgntr>
+    </AppHdr>
+    <FICdtTrf>
+        <tsct:GrpHdr>
+            <tsct:MsgId>20220720CHFDSA9621795075GRENCHZZ002</tsct:MsgId>
+            <tsct:CreDtTm>2022-07-20T09:53:40</tsct:CreDtTm>
+            <tsct:NbOfTxs>1</tsct:NbOfTxs>
+            <tsct:SttlmInf>
+                <tsct:SttlmMtd>TDSA</tsct:SttlmMtd>
+                <tsct:SttlmAcct>
+                    <tsct:Id>
+                        <tsct:Othr>
+                            <tsct:Id>greenbank</tsct:Id>
+                        </tsct:Othr>
+                    </tsct:Id>
+                    <tsct:Nm>main</tsct:Nm>
+                </tsct:SttlmAcct>
+            </tsct:SttlmInf>
+            <tsct:PmtTpInf>
+                <tsct:SvcLvl>
+                    <tsct:Prtry>centralbank</tsct:Prtry>
+                </tsct:SvcLvl>
+            </tsct:PmtTpInf>
+            <tsct:InstgAgt>
+                <tsct:FinInstnId>
+                    <tsct:BICFI>GRENCHZZ002</tsct:BICFI>
+                    <tsct:Othr>
+                        <tsct:Id>greenbank</tsct:Id>
+                    </tsct:Othr>
+                </tsct:FinInstnId>
+            </tsct:InstgAgt>
+            <tsct:InstdAgt>
+                <tsct:FinInstnId>
+                    <tsct:BICFI>CBFCCHZZ003</tsct:BICFI>
+                    <tsct:Othr>
+                        <tsct:Id>centralbank</tsct:Id>
+                    </tsct:Othr>
+                </tsct:FinInstnId>
+            </tsct:InstdAgt>
+        </tsct:GrpHdr>
+        <tsct:CdtTrfTxInf>
+            <tsct:PmtId>
+                <tsct:InstrId>CHFDSA20220720GRENCHZZ002B380494409</tsct:InstrId>
+                <tsct:EndToEndId>b39e871cc42446ada613be9d9d9a344f</tsct:EndToEndId>
+                <tsct:TxId>b153a1afed3945d298a386283240835b</tsct:TxId>
+            </tsct:PmtId>
+            <tsct:IntrBkSttlmAmt Ccy="CHF">150000</tsct:IntrBkSttlmAmt>
+            <tsct:IntrBkSttlmDt>2022-07-20</tsct:IntrBkSttlmDt>
+            <tsct:Dbtr>
+                <tsct:FinInstnId>
+                    <tsct:Nm>greenbank</tsct:Nm>
+                </tsct:FinInstnId>
+            </tsct:Dbtr>
+            <tsct:DbtrAgt>
+                <tsct:FinInstnId>
+                    <tsct:BICFI>GRENCHZZ002</tsct:BICFI>
+                    <tsct:Othr>
+                        <tsct:Id>greenbank</tsct:Id>
+                    </tsct:Othr>
+                </tsct:FinInstnId>
+            </tsct:DbtrAgt>
+            <tsct:CdtrAgt>
+                <tsct:FinInstnId>
+                    <tsct:BICFI>CBFCCHZZ003</tsct:BICFI>
+                    <tsct:Othr>
+                        <tsct:Id>centralbank</tsct:Id>
+                    </tsct:Othr>
+                </tsct:FinInstnId>
+            </tsct:CdtrAgt>
+            <tsct:Cdtr>
+                <tsct:FinInstnId>
+                    <tsct:Nm>centralbank</tsct:Nm>
+                </tsct:FinInstnId>
+            </tsct:Cdtr>
+            <tsct:SplmtryData>
+                <tsct:PlcAndNm>/Document/CdtTrfTxInf/DpstDtls/BkNm</tsct:PlcAndNm>
+                <tsct:Envlp>
+                    <tsct:Id>Green Bank AG</tsct:Id>
+                </tsct:Envlp>
+            </tsct:SplmtryData>
+            <tsct:SplmtryData>
+                <tsct:PlcAndNm>/Document/CdtTrfTxInf/DpstDtls/BrnchId</tsct:PlcAndNm>
+                <tsct:Envlp>
+                    <tsct:Id>00762</tsct:Id>
+                </tsct:Envlp>
+            </tsct:SplmtryData>
+            <tsct:SplmtryData>
+                <tsct:PlcAndNm>/Document/CdtTrfTxInf/DpstDtls/AcctNb</tsct:PlcAndNm>
+                <tsct:Envlp>
+                    <tsct:Id>76211623852957</tsct:Id>
+                </tsct:Envlp>
+            </tsct:SplmtryData>
+            <tsct:SplmtryData>
+                <tsct:PlcAndNm>/Document/CdtTrfTxInf/DpstDtls/AcctTp</tsct:PlcAndNm>
+                <tsct:Envlp>
+                    <tsct:Id>BBAN</tsct:Id>
+                </tsct:Envlp>
+            </tsct:SplmtryData>
+            <tsct:SplmtryData>
+                <tsct:PlcAndNm>/Document/CdtTrfTxInf/DpstDtls/PmtMtd/SvcLvl/Cd</tsct:PlcAndNm>
+                <tsct:Envlp>
+                    <tsct:Id>SIC</tsct:Id>
+                </tsct:Envlp>
+            </tsct:SplmtryData>
+        </tsct:CdtTrfTxInf>
+    </FICdtTrf>
+</Message>

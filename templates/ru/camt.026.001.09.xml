@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Message xmlns="urn:tkeysettlement"
+    xmlns:tsuta="urn:iso:std:iso:20022:tech:xsd:camt.026.001.09"
+    xmlns:head="urn:iso:std:iso:20022:tech:xsd:head.001.001.03">
+    <AppHdr>
+        <head:Fr>
+            <head:FIId>
+                <head:FinInstnId>
+                    <!-- Зарегистрированный код BIC отправителя сообщения -->
+                    <head:BICFI>{bicfi}</head:BICFI>
+                    <head:Othr>
+                        <!-- Идентификатор Участника отправителя сообщения в TKEY7 -->
+                        <head:Id>{member_identification}</head:Id>
+                        <!-- Издатель -->
+                        <head:Issr>TKEY7</head:Issr>
+                    </head:Othr>
+                </head:FinInstnId>
+            </head:FIId>
+        </head:Fr>
+        <head:To>
+            <head:FIId>
+                <head:FinInstnId>
+                    <!-- Идентификатор точки обмена сообщения — константа -->
+                    <head:BICFI>TKEYINTL07X</head:BICFI>
+                    <head:Othr>
+                        <!-- Идентификатор TKEY7 в системе — константа -->
+                        <head:Id>tkeymain</head:Id>
+                        <!-- Издатель -->
+                        <head:Issr>TKEY7</head:Issr>
+                    </head:Othr>
+                </head:FinInstnId>
+            </head:FIId>
+        </head:To>
+        <!-- Уникальный идентификатор бизнес-сообщения -->
+        <head:BizMsgIdr>{BizMsgIdr}</head:BizMsgIdr>
+        <!-- Идентификатор сообщения — константа -->
+        <head:MsgDefIdr>camt.026.001.09</head:MsgDefIdr>
+        <!-- Дата и время создания бизнес-сообщения в формате ISO 8601 -->
+        <head:CreDt>{CreDt}</head:CreDt>
+    </AppHdr>
+    <UblToApply>
+        <tsuta:Assgnmt>
+            <!-- Уникальный идентификатор сообщения -->
+            <tsuta:Id>{Id}</tsuta:Id>
+            <!-- Инициирующая сторона  -->
+            <tsuta:Assgnr>
+                <tsuta:Agt>
+                    <tsuta:FinInstnId>
+                        <!-- Зарегистрированный код BIC Участника ПФУ -->
+                        <tsuta:BICFI>{bicfi}</tsuta:BICFI>
+                        <tsuta:Othr>
+                            <!-- Идентификатор Участника ПФУ в TKEY7 -->
+                            <tsuta:Id>{member_identification}</tsuta:Id>
+                        </tsuta:Othr>
+                    </tsuta:FinInstnId>
+                </tsuta:Agt>
+            </tsuta:Assgnr>
+            <!-- Отвечающая сторона -->
+            <tsuta:Assgne>
+                <tsuta:Agt>
+                    <tsuta:FinInstnId>
+                        <!-- Зарегистрированный код BIC Участника ОФУ -->
+                        <tsuta:BICFI>{bicfi}</tsuta:BICFI>
+                        <tsuta:Othr>
+                            <!-- Идентификатор Участника ОФУ в TKEY7 -->
+                            <tsuta:Id>{member_identification}</tsuta:Id>
+                        </tsuta:Othr>
+                    </tsuta:FinInstnId>
+                </tsuta:Agt>
+            </tsuta:Assgne>
+            <!-- Дата и время создания сообщения в формате ISO 8601 -->
+            <tsuta:CreDtTm>{CreDtTm}</tsuta:CreDtTm>
+        </tsuta:Assgnmt>
+        <tsuta:Undrlyg>
+            <tsuta:Initn>
+                <!-- Уникальный идентификатор исходной инструкции -->
+                <tsuta:OrgnlInstrId>{OrgnlInstrId}</tsuta:OrgnlInstrId>
+                <!-- Исходная сумма и трёхбуквенный код валюты связанного сообщения -->
+                <tsuta:OrgnlInstdAmt Ccy="{Ccy}">{instructed_amount}</tsuta:OrgnlInstdAmt>
+            </tsuta:Initn>
+        </tsuta:Undrlyg>
+        <tsuta:Justfn>
+            <tsuta:MssngOrIncrrctInf>
+                <tsuta:IncrrctInf>
+                    <!-- Код причины отказа в исполнении кредитового перевода -->
+                    <tsuta:Cd>{Cd}</tsuta:Cd>
+                </tsuta:IncrrctInf>
+            </tsuta:MssngOrIncrrctInf>
+        </tsuta:Justfn>
+    </UblToApply>
+</Message>
