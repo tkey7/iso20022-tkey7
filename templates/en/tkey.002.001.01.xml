@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Message xmlns="urn:tkeysettlement" 
+    xmlns:tstsn="urn:iso:std:iso:20022:tech:xsd:tkey.002.001.01" 
+    xmlns:head="urn:iso:std:iso:20022:tech:xsd:head.001.001.03">
+    <AppHdr>
+      <head:Fr>
+         <head:FIId>
+            <head:FinInstnId>
+               <!-- Registered BIC Code of the Message Sender -->
+               <head:BICFI>{bicfi}</head:BICFI>
+               <head:Othr>
+                  <!-- Message Sender Member Identifier in TKEY7 -->
+                  <head:Id>{member_identification}</head:Id>
+                  <!-- Issuer -->
+                  <head:Issr>TKEY7</head:Issr>
+               </head:Othr>
+            </head:FinInstnId>
+         </head:FIId>
+      </head:Fr>
+      <head:To>
+         <head:FIId>
+            <head:FinInstnId>
+               <!-- Messaging Point Identifier—constant -->
+               <head:BICFI>TKEYINTL07X</head:BICFI>
+               <head:Othr>
+                  <!-- TKEY7 Identifier in the System—constant -->
+                  <head:Id>tkeymain</head:Id>
+                  <!-- Issuer -->
+                  <head:Issr>TKEY7</head:Issr>
+               </head:Othr>
+            </head:FinInstnId>
+         </head:FIId>
+      </head:To>
+      <!-- Unique Business Message Identifier -->
+      <head:BizMsgIdr>{BizMsgIdr}</head:BizMsgIdr>
+      <!-- Message Identifier—constant -->
+      <head:MsgDefIdr>tkey.002.001.01</head:MsgDefIdr>
+      <!-- Date and Time of Business Message Creation in ISO 8601 Format -->
+      <head:CreDt>{CreDt}</head:CreDt>
+   </AppHdr>
+    <TxSttlmNtfctn>
+        <tstsn:GrpHdr>
+            <!-- Unique Message Identifier -->
+            <tstsn:MsgId>{MsgId}</tstsn:MsgId>
+            <!-- Date and Time of Message Creation in ISO 8601 Format -->
+            <tstsn:CreDtTm>{CreDtTm}</tstsn:CreDtTm>
+            <!-- Number of Transactions—constant -->
+            <tstsn:NbOfTxs>1</tstsn:NbOfTxs>
+            <tstsn:SttlmInf>
+                <!-- Settlement Method Identifier -->
+                <tstsn:SttlmMtd>{interbank_settlement_method}</tstsn:SttlmMtd>
+                <tstsn:SttlmAcct>
+                    <tstsn:Id>
+                        <tstsn:Othr>
+                            <!-- SFI Member Identifier in TKEY7 -->
+                            <tstsn:Id>{member_identification}</tstsn:Id>
+                        </tstsn:Othr>
+                    </tstsn:Id>
+                    <!-- SFI Member Digital Account Identifier in TKEY7 -->
+                    <tstsn:Nm>{account_identification}</tstsn:Nm>
+                </tstsn:SttlmAcct>
+            </tstsn:SttlmInf>
+            <tstsn:PmtTpInf>
+                <tstsn:SvcLvl>
+                    <!-- SFI Member Identifier in TKEY7 -->
+                    <tstsn:Prtry>{member_identification}</tstsn:Prtry>
+                </tstsn:SvcLvl>
+            </tstsn:PmtTpInf>
+            <!-- Instructing Agent -->
+            <tstsn:InstgAgt>
+                <tstsn:FinInstnId>
+                    <!-- SFI Member Registered BIC code -->
+                    <tstsn:BICFI>{bicfi}</tstsn:BICFI>
+                    <tstsn:Othr>
+                        <!-- SFI Member Identifier in TKEY7 -->
+                        <tstsn:Id>{member_identification}</tstsn:Id>
+                    </tstsn:Othr>
+                </tstsn:FinInstnId>
+            </tstsn:InstgAgt>
+             <!--Instructed Agent -->
+            <tstsn:InstdAgt>
+                <tstsn:FinInstnId>
+                    <!-- BFI Member Registered BIC code -->
+                    <tstsn:BICFI>{bicfi}</tstsn:BICFI>
+                    <tstsn:Othr>
+                        <!-- BFI Member Identifier in TKEY7 -->
+                        <tstsn:Id>{member_identification}</tstsn:Id>
+                    </tstsn:Othr>
+                </tstsn:FinInstnId>
+            </tstsn:InstdAgt>
+        </tstsn:GrpHdr>
+        <tstsn:TxSttlmInf>
+            <tstsn:OrgnlGrpInf>
+                <!-- Unique Original Message Identifier -->
+                <tstsn:OrgnlMsgId>{OrgnlMsgId}</tstsn:OrgnlMsgId>
+                <!-- Original Message Name Identifier -->
+                <tstsn:OrgnlMsgNmId>{OrgnlMsgNmId}</tstsn:OrgnlMsgNmId>
+                <!-- Date and Time of Original Message Creation in ISO 8601 Format -->
+                <tstsn:OrgnlCreDtTm>{OrgnlCreDtTm}</tstsn:OrgnlCreDtTm>
+            </tstsn:OrgnlGrpInf>
+            <tstsn:TxInf>
+                <!-- Unique Settlement Transaction Identifier -->
+                <tstsn:SttlmId>{SttlmId}</tstsn:SttlmId>
+                <!-- Unique Original Instruction Identifier -->
+                <tstsn:OrgnlInstrId>{OrgnlInstrId}</tstsn:OrgnlInstrId>
+                <!-- Unique Original End-To-End Identifier -->
+                <tstsn:OrgnlEndToEndId>{OrgnlEndToEndId}</tstsn:OrgnlEndToEndId>
+                <!-- Unique Original Transaction Identifier -->
+                <tstsn:OrgnlTxId>{OrgnlTxId}</tstsn:OrgnlTxId>
+                <!-- Actual Interbank Settlement Amount and Three-letter Currency Code -->
+                <tstsn:ActlSttlmAmt Ccy="{Ccy}">{ActlSttlmAmt}</tstsn:ActlSttlmAmt>
+                <tstsn:OrgnlTxRef>
+                    <!-- Settlement Asset Identifier in TKEY7 and the Original Interbank Settlement Amount -->
+                    <tstsn:IntrBkSttlmAmt Ccy="{asset_code_identification}">{interbank_settlement_amount}</tstsn:IntrBkSttlmAmt>
+                    <!-- Payer -->
+                    <tstsn:Dbtr>
+                        <!-- Payer’s Name -->
+                        <tstsn:Nm>{Nm}</tstsn:Nm>
+                        <!-- Mailing Address -->
+                        <tstsn:PstlAdr>
+                            <!-- Street Name -->
+                            <tstsn:StrtNm>{StrtNm}</tstsn:StrtNm>
+                            <!-- Building Number -->
+                            <tstsn:BldgNb>{BldgNb}</tstsn:BldgNb>
+                            <!-- Postcode -->
+                            <tstsn:PstCd>{PstCd}</tstsn:PstCd>
+                            <!-- Town Name -->
+                            <tstsn:TwnNm>{TwnNm}</tstsn:TwnNm>
+                            <!-- Country Name -->
+                            <tstsn:Ctry>{Ctry}</tstsn:Ctry>
+                        </tstsn:PstlAdr>
+                    </tstsn:Dbtr>
+                    <!-- Beneficiary -->
+                    <tstsn:Cdtr>
+                        <!-- Beneficiary’s Name -->
+                        <tstsn:Nm>{Nm}</tstsn:Nm>
+                        <!-- Mailing Address -->
+                        <tstsn:PstlAdr>
+                            <!-- Street Name -->
+                            <tstsn:StrtNm>{StrtNm}</tstsn:StrtNm>
+                            <!-- Building Number -->
+                            <tstsn:BldgNb>{BldgNb}</tstsn:BldgNb>
+                            <!-- Postcode -->
+                            <tstsn:PstCd>{PstCd}</tstsn:PstCd>
+                            <!-- Town Name -->
+                            <tstsn:TwnNm>{TwnNm}</tstsn:TwnNm>
+                            <!-- Country Name -->
+                            <tstsn:Ctry>{Ctry}</tstsn:Ctry>
+                        </tstsn:PstlAdr>
+                    </tstsn:Cdtr>
+                </tstsn:OrgnlTxRef>
+            </tstsn:TxInf>
+        </tstsn:TxSttlmInf>
+    </TxSttlmNtfctn>
+</Message>

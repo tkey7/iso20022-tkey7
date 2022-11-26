@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Message xmlns="urn:tkeysettlement" 
+   xmlns:tspr="urn:iso:std:iso:20022:tech:xsd:pacs.004.001.10" 
+   xmlns:head="urn:iso:std:iso:20022:tech:xsd:head.001.001.03">
+   <AppHdr>
+      <head:Fr>
+         <head:FIId>
+            <head:FinInstnId>
+               <!-- Registered BIC Code of the Message Sender -->
+               <head:BICFI>{bicfi}</head:BICFI>
+               <head:Othr>
+                  <!-- Message Sender Member Identifier in TKEY7 -->
+                  <head:Id>{member_identification}</head:Id>
+                  <!-- Issuer -->
+                  <head:Issr>TKEY7</head:Issr>
+               </head:Othr>
+            </head:FinInstnId>
+         </head:FIId>
+      </head:Fr>
+      <head:To>
+         <head:FIId>
+            <head:FinInstnId>
+               <!-- Messaging Point Identifier—constant -->
+               <head:BICFI>TKEYINTL07X</head:BICFI>
+               <head:Othr>
+                  <!-- TKEY7 Identifier in the System—constant -->
+                  <head:Id>tkeymain</head:Id>
+                  <!-- Issuer -->
+                  <head:Issr>TKEY7</head:Issr>
+               </head:Othr>
+            </head:FinInstnId>
+         </head:FIId>
+      </head:To>
+      <!-- Unique Business Message Identifier -->
+      <head:BizMsgIdr>{BizMsgIdr}</head:BizMsgIdr>
+      <!-- Message Identifier—constant -->
+      <head:MsgDefIdr>pacs.004.001.10</head:MsgDefIdr>
+      <!-- Date and Time of Business Message Creation in ISO 8601 Format -->
+      <head:CreDt>{CreDt}</head:CreDt>
+   </AppHdr>
+   <PmtRtr>
+      <tspr:GrpHdr>
+         <!-- Unique Message Identifier -->
+         <tspr:MsgId>{MsgId}</tspr:MsgId>
+         <!-- Date and Time of Message Creation in ISO 8601 Format -->
+         <tspr:CreDtTm>{CreDtTm}</tspr:CreDtTm>
+         <!-- Number of Transactions—constant -->
+         <tspr:NbOfTxs>1</tspr:NbOfTxs>
+         <tspr:SttlmInf>
+            <!-- Settlement Method Identifier -->
+            <tspr:SttlmMtd>{interbank_settlement_method}</tspr:SttlmMtd>
+            <tspr:SttlmAcct>
+               <tspr:Id>
+                  <tspr:Othr>
+                     <!-- BFI Member Identifier in TKEY7 -->
+                     <tspr:Id>{member_identification}</tspr:Id>
+                  </tspr:Othr>
+               </tspr:Id>
+               <!-- BFI Member Digital Account Identifier in TKEY7 -->
+               <tspr:Nm>{account_identification}</tspr:Nm>
+            </tspr:SttlmAcct>
+         </tspr:SttlmInf>
+         <!-- Instructing Agent -->
+         <tspr:InstgAgt>
+            <tspr:FinInstnId>
+               <!-- BFI Member Registered BIC code -->
+               <tspr:BICFI>{bicfi}</tspr:BICFI>
+               <tspr:Othr>
+                  <!-- BFI Member Identifier in TKEY7 -->
+                  <tspr:Id>{member_identification}</tspr:Id>
+               </tspr:Othr>
+            </tspr:FinInstnId>
+         </tspr:InstgAgt>
+         <!-- Instructed Agent -->
+         <tspr:InstdAgt>
+            <tspr:FinInstnId>
+               <!-- SFI Member Registered BIC code -->
+               <tspr:BICFI>{bicfi}</tspr:BICFI>
+               <tspr:Othr>
+                  <!-- SFI Member Identifier in TKEY7 -->
+                  <tspr:Id>{member_identification}</tspr:Id>
+               </tspr:Othr>
+            </tspr:FinInstnId>
+         </tspr:InstdAgt>
+      </tspr:GrpHdr>
+      <tspr:OrgnlGrpInf>
+         <!-- Unique Original Message Identifier -->
+         <tspr:OrgnlMsgId>{OrgnlMsgId}</tspr:OrgnlMsgId>
+         <!-- Original Message Name Identifier -->
+         <tspr:OrgnlMsgNmId>{OrgnlMsgNmId}</tspr:OrgnlMsgNmId>
+         <!-- Date and Time of Original Message Creation in ISO 8601 Format -->
+         <tspr:OrgnlCreDtTm>{OrgnlCreDtTm}</tspr:OrgnlCreDtTm>
+         <tspr:RtrRsnInf>
+             <tspr:Rsn>
+               <!-- The Internal Return Reason Identification Code in TKEY7.—“0001” for DSO Return and “0002” for other scenarios. -->
+               <tspr:Cd>{Cd}</tspr:Cd>
+            </tspr:Rsn>
+            <!-- Additional Information -->
+            <tspr:AddtlInf>{AddtlInf}</tspr:AddtlInf>
+          </tspr:RtrRsnInf>
+      </tspr:OrgnlGrpInf>
+      <tspr:TxInf>
+         <!-- Unique Identifier of the Transaction to be Returned -->
+         <tspr:RtrId>{RtrId}</tspr:RtrId>
+         <!-- Unique Original Instruction Identifier -->
+         <tspr:OrgnlInstrId>{OrgnlInstrId}</tspr:OrgnlInstrId>
+         <!-- Unique Original End-To-End Identifier -->
+         <tspr:OrgnlEndToEndId>{OrgnlEndToEndId}</tspr:OrgnlEndToEndId>
+         <!-- Unique Original Transaction Identifier -->
+         <tspr:OrgnlTxId>{OrgnlTxId}</tspr:OrgnlTxId>
+         <!-- Settlement Asset Identifier in TKEY7 and the Original Interbank Settlement Amount -->
+         <tspr:OrgnlIntrBkSttlmAmt Ccy="{asset_code_identification}">{interbank_settlement_amount}</tspr:OrgnlIntrBkSttlmAmt>
+         <!-- Settlement Asset Identifier in TKEY7 and Returned Interbank Settlement Amount -->
+         <tspr:RtrdIntrBkSttlmAmt Ccy="{asset_code_identification}">{RtrdIntrBkSttlmAmt}</tspr:RtrdIntrBkSttlmAmt> 
+         <!-- Interbank Settlement Date -->
+         <tspr:IntrBkSttlmDt>{IntrBkSttlmDt}</tspr:IntrBkSttlmDt>
+         <!-- Returned Amount and the Three-letter Currency Code -->
+         <tspr:RtrdInstdAmt Ccy="{Ccy}">{instructed_amount}</tspr:RtrdInstdAmt>
+         <!-- The Party that Pays the Fees --> 
+         <tspr:ChrgBr>{ChrgBr}</tspr:ChrgBr>
+         <tspr:ChrgsInf> 
+            <!-- Settlement Asset Identifier in TKEY7 and Fee Amount -->
+            <tspr:Amt Ccy="{asset_code_identification}">{Amt}</tspr:Amt>
+            <tspr:Agt>
+               <tspr:FinInstnId>
+                  <!-- Member’s Registered BIC code who Charges a Fee -->
+                  <tspr:BICFI>{bicfi}</tspr:BICFI>
+                  <tspr:Othr>
+                     <!-- Member Identifier in TKEY7, who Charges a Fee -->
+                     <tspr:Id>{member_identification}</tspr:Id>
+                  </tspr:Othr>
+               </tspr:FinInstnId>
+            </tspr:Agt>
+         </tspr:ChrgsInf>
+         <tspr:RtrRsnInf>
+            <tspr:Orgtr>
+               <!-- Payer’s Name -->
+               <tspr:Nm>{Nm}</tspr:Nm>
+            </tspr:Orgtr>
+            <tspr:Rsn>
+               <!-- Return Reason Code -->
+               <tspr:Cd>{Prtry}</tspr:Cd>
+               <!-- Short Reason for Return or Settlement Time outside TKEY7 --> 
+               <tspr:Prtry>{Prtry}</tspr:Prtry>
+            </tspr:Rsn>
+            <!-- Detailed Information for Return Reason --> 
+            <tspr:AddtlInf>{AddtlInf}</tspr:AddtlInf>
+         </tspr:RtrRsnInf>
+         <tspr:OrgnlTxRef>
+            <tspr:SttlmInf>
+               <!-- Settlement Method Identifier of the Original Transaction --> 
+               <tspr:SttlmMtd>{interbank_settlement_method}</tspr:SttlmMtd>
+               <tspr:SttlmAcct>
+                  <tspr:Id>
+                     <tspr:Othr>
+                        <!-- SFI Member Identifier in TKEY7 -->
+                        <tspr:Id>{member_identification}</tspr:Id>
+                     </tspr:Othr>
+                  </tspr:Id>
+                  <!-- SFI Member Digital Account Identifier in TKEY7  -->
+                  <tspr:Nm>{account_identification}</tspr:Nm>
+               </tspr:SttlmAcct>
+            </tspr:SttlmInf>
+            <tspr:PmtTpInf>
+               <tspr:SvcLvl>
+                  <!-- Issuer Identifier of the Returned Asset in TKEY7 -->
+                  <tspr:Prtry>{member_identification}</tspr:Prtry>
+               </tspr:SvcLvl>
+            </tspr:PmtTpInf>
+         </tspr:OrgnlTxRef>
+      </tspr:TxInf>
+   </PmtRtr>
+</Message>

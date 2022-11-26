@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Message xmlns="urn:tkeysettlement" 
+    xmlns:tspcr="urn:iso:std:iso:20022:tech:xsd:camt.056.001.10" 
+    xmlns:head="urn:iso:std:iso:20022:tech:xsd:head.001.001.03">
+   <AppHdr>
+      <head:Fr>
+         <head:FIId>
+            <head:FinInstnId>
+               <!-- Registered BIC Code of the Message Sender -->
+               <head:BICFI>{bicfi}</head:BICFI>
+               <head:Othr>
+                  <!-- Message Sender Member Identifier in TKEY7 -->
+                  <head:Id>{member_identification}</head:Id>
+                  <!-- Issuer -->
+                  <head:Issr>TKEY7</head:Issr>
+               </head:Othr>
+            </head:FinInstnId>
+         </head:FIId>
+      </head:Fr>
+      <head:To>
+         <head:FIId>
+            <head:FinInstnId>
+               <!-- Messaging Point Identifier—constant -->
+               <head:BICFI>TKEYINTL07X</head:BICFI>
+               <head:Othr>
+                  <!-- TKEY7 Identifier in the System—constant -->
+                  <head:Id>tkeymain</head:Id>
+                  <!-- Issuer -->
+                  <head:Issr>TKEY7</head:Issr>
+               </head:Othr>
+            </head:FinInstnId>
+         </head:FIId>
+      </head:To>
+      <!-- Unique Business Message Identifier -->
+      <head:BizMsgIdr>{BizMsgIdr}</head:BizMsgIdr>
+      <!-- Message Identifier—constant -->
+      <head:MsgDefIdr>camt.056.001.10</head:MsgDefIdr>
+      <!-- Date and Time of Business Message Creation in ISO 8601 Format -->
+      <head:CreDt>{CreDt}</head:CreDt>
+   </AppHdr>
+   <FIToFIPmtCxlReq>
+   <!-- Request Identification -->
+      <tspcr:Assgnmt>
+         <!-- Unique Message Identifier -->
+         <tspcr:Id>{Id}</tspcr:Id>
+         <!-- Initiating Party -->
+         <tspcr:Assgnr>
+            <tspcr:Agt>
+               <tspcr:FinInstnId>
+                  <!-- SFI Member Registered BIC code -->
+                  <tspcr:BICFI>{bicfi}</tspcr:BICFI>
+                  <tspcr:Othr>
+                     <!-- SFI Member Identifier in TKEY7 -->
+                     <tspcr:Id>{member_identification}</tspcr:Id>
+                  </tspcr:Othr>
+               </tspcr:FinInstnId>
+            </tspcr:Agt>
+         </tspcr:Assgnr> 
+         <!-- Responding Party -->
+         <tspcr:Assgne>
+            <tspcr:Agt>
+               <tspcr:FinInstnId>
+                  <!-- BFI Member Registered BIC code -->
+                  <tspcr:BICFI>{bicfi}</tspcr:BICFI>
+                  <tspcr:Othr>
+                     <!-- BFI Member Identifier in TKEY7 -->
+                     <tspcr:Id>{member_identification}</tspcr:Id>
+                  </tspcr:Othr>
+               </tspcr:FinInstnId>
+            </tspcr:Agt>
+         </tspcr:Assgne>
+         <!-- Date and Time of Message Creation in ISO 8601 Format -->
+         <tspcr:CreDtTm>{CreDtTm}</tspcr:CreDtTm>
+      </tspcr:Assgnmt>
+      <tspcr:Case>
+         <!-- Unique Message Identifier (case) -->
+         <tspcr:Id>{Id}</tspcr:Id>
+         <tspcr:Cretr>
+            <tspcr:Agt>
+               <tspcr:FinInstnId>
+                  <!-- SFI Member Registered BIC code -->
+                  <tspcr:BICFI>{bicfi}</tspcr:BICFI>
+                  <tspcr:Othr>
+                      <!-- SFI Member Identifier in TKEY7 -->
+                     <tspcr:Id>{member_identification}</tspcr:Id>
+                  </tspcr:Othr>
+               </tspcr:FinInstnId>
+            </tspcr:Agt>
+         </tspcr:Cretr>
+      </tspcr:Case>
+      <tspcr:Undrlyg>
+         <tspcr:OrgnlGrpInfAndCxl>
+            <!-- Unique Original Message Identifier -->
+            <tspcr:OrgnlMsgId>{OrgnlMsgId}</tspcr:OrgnlMsgId>
+            <!-- Original Message Name Identifier -->
+            <tspcr:OrgnlMsgNmId>{OrgnlMsgNmId}</tspcr:OrgnlMsgNmId>
+         </tspcr:OrgnlGrpInfAndCxl>
+         <tspcr:TxInf>
+            <!-- Unique Original Instruction Identifier -->
+            <tspcr:OrgnlInstrId>{OrgnlInstrId}</tspcr:OrgnlInstrId>
+            <!-- Unique Original End-To-End Identifier -->
+            <tspcr:OrgnlEndToEndId>{OrgnlEndToEndId}</tspcr:OrgnlEndToEndId>
+            <!-- Unique Original Transaction Identifier -->
+            <tspcr:OrgnlTxId>{OrgnlTxId}</tspcr:OrgnlTxId>
+            <!-- Settlement Asset Identifier in TKEY7 and the Original Interbank Settlement Amount -->
+            <tspcr:OrgnlIntrBkSttlmAmt Ccy="{asset_code_identification}">{interbank_settlement_amount}</tspcr:OrgnlIntrBkSttlmAmt>
+            <!-- Interbank Settlement Date -->
+            <tspcr:OrgnlIntrBkSttlmDt>{OrgnlIntrBkSttlmDt}</tspcr:OrgnlIntrBkSttlmDt>
+            <tspcr:CxlRsnInf>
+               <tspcr:Rsn>
+                  <!-- Reason Code -->
+                  <tspcr:Cd>{Cd}</tspcr:Cd>
+               </tspcr:Rsn>
+               <!-- Reason for the Payment Cancelation Request -->
+               <tspcr:AddtlInf>{AddtlInf}</tspcr:AddtlInf>
+            </tspcr:CxlRsnInf>
+            <tspcr:OrgnlTxRef>
+               <tspcr:SttlmInf>
+                  <!-- Settlement Method Identifier -->
+                  <tspcr:SttlmMtd>{interbank_settlement_method}</tspcr:SttlmMtd>
+                  <tspcr:SttlmAcct>
+                     <tspcr:Id>
+                        <tspcr:Othr>
+                           <!-- SFI Member Identifier in TKEY7 -->
+                           <tspcr:Id>{member_identification}</tspcr:Id>
+                        </tspcr:Othr>
+                     </tspcr:Id>
+                     <!-- SFI Member Digital Account Identifier in TKEY7 -->
+                     <tspcr:Nm>{account_identification}</tspcr:Nm>
+                  </tspcr:SttlmAcct>
+               </tspcr:SttlmInf>
+            </tspcr:OrgnlTxRef>
+         </tspcr:TxInf>
+      </tspcr:Undrlyg>
+   </FIToFIPmtCxlReq>
+</Message>

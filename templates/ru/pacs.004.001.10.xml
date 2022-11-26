@@ -11,7 +11,7 @@
                     <head:Othr>
                         <!-- Идентификатор Участника отправителя сообщения в TKEY7 -->
                         <head:Id>{member_identification}</head:Id>
-                        <!-- Издатель -->
+                        <!-- Издатель — константа -->
                         <head:Issr>TKEY7</head:Issr>
                     </head:Othr>
                 </head:FinInstnId>
@@ -25,7 +25,7 @@
                     <head:Othr>
                         <!-- Идентификатор TKEY7 в системе — константа -->
                         <head:Id>tkeymain</head:Id>
-                        <!-- Издатель -->
+                        <!-- Издатель — константа -->
                         <head:Issr>TKEY7</head:Issr>
                     </head:Othr>
                 </head:FinInstnId>
@@ -95,7 +95,7 @@
                     <!-- Код идентификации причины возврата в TKEY7 — «0001» для возврата ЦРО и «0002» для остальных сценариев -->
                     <tspr:Cd>{Cd}</tspr:Cd>
                 </tspr:Rsn>
-                <!-- Дополнительная информация  -->
+                <!-- Дополнительная информация -->
                 <tspr:AddtlInf>{AddtlInf}</tspr:AddtlInf>
             </tspr:RtrRsnInf>
         </tspr:OrgnlGrpInf>
@@ -143,12 +143,12 @@
                     <!-- Короткая причина возврата или время расчёта вне TKEY7 -->
                     <tspr:Prtry>{Prtry}</tspr:Prtry>
                 </tspr:Rsn>
-                <!-- Подробная информация о причине возврате -->
+                <!-- Подробная информация о причине возврата -->
                 <tspr:AddtlInf>{AddtlInf}</tspr:AddtlInf>
             </tspr:RtrRsnInf>
             <tspr:OrgnlTxRef>
                 <tspr:SttlmInf>
-                    <!-- Идентификатор способа осуществления расчётов исходной транзакции -->
+                    <!-- Идентификатор способа расчётов исходной транзакции -->
                     <tspr:SttlmMtd>{interbank_settlement_method}</tspr:SttlmMtd>
                     <tspr:SttlmAcct>
                         <tspr:Id>

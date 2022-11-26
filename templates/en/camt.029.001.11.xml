@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Message xmlns="urn:tkeysettlement" 
+    xmlns:tsroi="urn:iso:std:iso:20022:tech:xsd:camt.029.001.11" 
+    xmlns:head="urn:iso:std:iso:20022:tech:xsd:head.001.001.03">
+   <AppHdr>
+      <head:Fr>
+         <head:FIId>
+            <head:FinInstnId>
+               <!-- Registered BIC Code of the Message Sender -->
+               <head:BICFI>{bicfi}</head:BICFI>
+               <head:Othr>
+                  <!-- Message Sender Member Identifier in TKEY7 -->
+                  <head:Id>{member_identification}</head:Id>
+                  <!-- Issuer -->
+                  <head:Issr>TKEY7</head:Issr>
+               </head:Othr>
+            </head:FinInstnId>
+         </head:FIId>
+      </head:Fr>
+      <head:To>
+         <head:FIId>
+            <head:FinInstnId>
+               <!-- Messaging Point Identifier—constant -->
+               <head:BICFI>TKEYINTL07X</head:BICFI>
+               <head:Othr>
+                  <!-- TKEY7 Identifier in the System—constant -->
+                  <head:Id>tkeymain</head:Id>
+                  <!-- Issuer -->
+                  <head:Issr>TKEY7</head:Issr>
+               </head:Othr>
+            </head:FinInstnId>
+         </head:FIId>
+      </head:To>
+      <!-- Unique Business Message Identifier -->
+      <head:BizMsgIdr>{BizMsgIdr}</head:BizMsgIdr>
+      <!-- Message Identifier—constant -->
+      <head:MsgDefIdr>camt.029.001.11</head:MsgDefIdr>
+      <!-- Date and Time of Business Message Creation in ISO 8601 Format -->
+      <head:CreDt>{CreDt}</head:CreDt>
+   </AppHdr>
+   <RsltnOfInvstgtn>
+      <!-- Response Identification -->
+      <tsroi:Assgnmt>
+         <!-- Unique Message Identifier -->
+         <tsroi:Id>{Id}</tsroi:Id>
+         <tsroi:Assgnr>
+            <tsroi:Agt>
+               <tsroi:FinInstnId>
+                  <!-- BFI Member Registered BIC code -->
+                  <tsroi:BICFI>{bicfi}</tsroi:BICFI>
+                  <tsroi:Othr>
+                     <!-- BFI Member Identifier in TKEY7 -->
+                     <tsroi:Id>{member_identification}</tsroi:Id>
+                  </tsroi:Othr>
+               </tsroi:FinInstnId>
+            </tsroi:Agt>
+         </tsroi:Assgnr>
+         <tsroi:Assgne>
+            <tsroi:Agt>
+               <tsroi:FinInstnId>
+                  <!-- SFI Member Registered BIC code -->
+                  <tsroi:BICFI>{bicfi}</tsroi:BICFI>
+                  <tsroi:Othr>
+                     <!-- SFI Member Identifier in TKEY7 -->
+                     <tsroi:Id>{member_identification}</tsroi:Id>
+                  </tsroi:Othr>
+               </tsroi:FinInstnId>
+            </tsroi:Agt>
+         </tsroi:Assgne>
+         <!-- Date and Time of Message Creation in ISO 8601 Format -->
+         <tsroi:CreDtTm>{CreDtTm}</tsroi:CreDtTm>
+      </tsroi:Assgnmt>
+      <!-- Recall Request Status -->
+      <tsroi:Sts>
+         <!-- Recall Request Status Code --> 
+         <tsroi:Conf>{Conf}</tsroi:Conf>
+      </tsroi:Sts>
+      <tsroi:CxlDtls>
+         <tsroi:OrgnlGrpInfAndSts>
+            <!-- Unique Original Message Identifier -->
+            <tsroi:OrgnlMsgId>{OrgnlMsgId}</tsroi:OrgnlMsgId>
+            <!-- Original Message Name Identifier -->
+            <tsroi:OrgnlMsgNmId>{OrgnlMsgNmId}</tsroi:OrgnlMsgNmId>
+         </tsroi:OrgnlGrpInfAndSts>
+         <tsroi:TxInfAndSts>
+            <!-- Unique Original Instruction Identifier -->
+            <tsroi:OrgnlInstrId>{OrgnlInstrId}</tsroi:OrgnlInstrId>
+            <tsroi:OrgnlTxRef>
+               <tsroi:SttlmInf>
+                  <!-- Settlement Method Identifier -->
+                  <tsroi:SttlmMtd>{interbank_settlement_method}</tsroi:SttlmMtd>
+                  <tsroi:SttlmAcct>
+                     <tsroi:Id>
+                        <tsroi:Othr>
+                           <!-- SFI Member Identifier in TKEY7 -->
+                           <tsroi:Id>{member_identification}</tsroi:Id>
+                        </tsroi:Othr>
+                     </tsroi:Id>
+                     <!-- SFI Member Digital Account Identifier in TKEY7 -->
+                     <tsroi:Nm>{account_identification}</tsroi:Nm>
+                  </tsroi:SttlmAcct>
+               </tsroi:SttlmInf>
+            </tsroi:OrgnlTxRef>
+         </tsroi:TxInfAndSts>
+      </tsroi:CxlDtls>
+   </RsltnOfInvstgtn>
+</Message>

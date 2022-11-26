@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Message xmlns="urn:tkeysettlement" 
+    xmlns:tscct="urn:iso:std:iso:20022:tech:xsd:pacs.008.001.09" 
+    xmlns:head="urn:iso:std:iso:20022:tech:xsd:head.001.001.03">
+   <AppHdr>
+      <head:Fr>
+         <head:FIId>
+            <head:FinInstnId>
+               <!-- Registered BIC Code of the Message Sender -->
+               <head:BICFI>{bicfi}</head:BICFI>
+               <head:Othr>
+                  <!-- Message Sender Member Identifier in TKEY7 -->
+                  <head:Id>{member_identification}</head:Id>
+                  <!-- Issuer -->
+                  <head:Issr>TKEY7</head:Issr>
+               </head:Othr>
+            </head:FinInstnId>
+         </head:FIId>
+      </head:Fr>
+      <head:To>
+         <head:FIId>
+            <head:FinInstnId>
+               <!-- Messaging Point Identifier—constant -->
+               <head:BICFI>TKEYINTL07X</head:BICFI>
+               <head:Othr>
+                  <!-- TKEY7 Identifier in the System—constant -->
+                  <head:Id>tkeymain</head:Id>
+                  <!-- Issuer -->
+                  <head:Issr>TKEY7</head:Issr>
+               </head:Othr>
+            </head:FinInstnId>
+         </head:FIId>
+      </head:To>
+      <!-- Unique Business Message Identifier -->
+      <head:BizMsgIdr>{BizMsgIdr}</head:BizMsgIdr>
+      <!-- Message Identifier—constant -->
+      <head:MsgDefIdr>pacs.008.001.09</head:MsgDefIdr>
+      <!-- Date and Time of Business Message Creation in ISO 8601 Format -->
+      <head:CreDt>{CreDt}</head:CreDt>
+   </AppHdr>
+    <FIToFICstmrCdtTrf>
+        <tscct:GrpHdr>
+            <!-- Unique Message Identifier -->
+            <tscct:MsgId>{MsgId}</tscct:MsgId>
+            <!-- Date and Time of Message Creation in ISO 8601 Format -->
+            <tscct:CreDtTm>{CreDtTm}</tscct:CreDtTm>
+            <!-- Number of Transactions—constant -->
+            <tscct:NbOfTxs>1</tscct:NbOfTxs>
+            <tscct:SttlmInf>
+                <!-- Settlement Method Identifier -->
+                <tscct:SttlmMtd>{interbank_settlement_method}</tscct:SttlmMtd>
+                <tscct:SttlmAcct>
+                    <tscct:Id>
+                        <tscct:Othr>
+                            <!-- SFI Member Identifier in TKEY7 -->
+                            <tscct:Id>{member_identification}</tscct:Id>
+                        </tscct:Othr>
+                    </tscct:Id>
+                    <!-- SFI Member Digital Account Identifier in TKEY7 -->
+                    <tscct:Nm>{account_identification}</tscct:Nm>
+                </tscct:SttlmAcct>
+            </tscct:SttlmInf>
+            <tscct:PmtTpInf>
+                <tscct:SvcLvl>
+                    <!-- Asset Issuer Identifier in TKEY7 -->
+                    <tscct:Prtry>{asset_issuer_identification}</tscct:Prtry>
+                </tscct:SvcLvl>
+            </tscct:PmtTpInf>
+            <!-- Instructing Agent -->
+            <tscct:InstgAgt>
+                <tscct:FinInstnId>
+                    <!-- SFI Member Registered BIC code -->
+                    <tscct:BICFI>{bicfi}</tscct:BICFI>
+                    <tscct:Othr>
+                        <!-- SFI Member Identifier in TKEY7 -->
+                        <tscct:Id>{member_identification}</tscct:Id>
+                    </tscct:Othr>
+                </tscct:FinInstnId>
+            </tscct:InstgAgt>
+            <!-- Instructed Agent -->
+            <tscct:InstdAgt>
+                <tscct:FinInstnId>
+                    <!-- BFI Member Registered BIC code -->
+                    <tscct:BICFI>{bicfi}</tscct:BICFI>
+                    <tscct:Othr>
+                        <!-- BFI Member Identifier in TKEY7 -->
+                        <tscct:Id>{member_identification}</tscct:Id>
+                    </tscct:Othr>
+                </tscct:FinInstnId>
+            </tscct:InstdAgt>
+        </tscct:GrpHdr>
+        <tscct:CdtTrfTxInf>
+            <!-- Credit Transfer Identification -->
+            <tscct:PmtId>
+                <!-- Unique Instruction Identifier -->
+                <tscct:InstrId>{InstrId}</tscct:InstrId>
+                <!-- Unique End-To-End Identifier -->
+                <tscct:EndToEndId>{EndToEndId}</tscct:EndToEndId>
+                <!-- Unique Transaction Identifier -->
+                <tscct:TxId>{TxId}</tscct:TxId>
+            </tscct:PmtId>
+            <!-- Settlement Asset Identifier in TKEY7 and the Interbank Settlement Amount -->
+            <tscct:IntrBkSttlmAmt Ccy="{asset_code_identification}">{interbank_settlement_amount}</tscct:IntrBkSttlmAmt>
+            <!-- Interbank Settlement Date -->
+            <tscct:IntrBkSttlmDt>{IntrBkSttlmDt}</tscct:IntrBkSttlmDt>
+            <!-- Instructed Transaction Currency and Amount -->
+            <tscct:InstdAmt Ccy="{instructed_currency_code}">{instructed_amount}</tscct:InstdAmt> 
+            <!-- Exchange Rate -->
+            <tscct:XchgRate>{foreign_exchange_rate}</tscct:XchgRate>
+            <!-- The Party that Pays the Fees -->
+            <tscct:ChrgBr>{ChrgBr}</tscct:ChrgBr>
+            <tscct:ChrgsInf>
+                <!-- Settlement Asset Identifier in TKEY7 and Fee Amount -->
+                <tscct:Amt Ccy="{asset_code_identification}">{fee_amount}</tscct:Amt>
+                <tscct:Agt>
+                    <tscct:FinInstnId>
+                        <!-- Member’s Registered BIC code who Charges a Fee -->
+                        <tscct:BICFI>{bicfi}</tscct:BICFI>
+                        <tscct:Othr>
+                            <!-- Member Identifier in TKEY7, who Charges a Fee -->
+                            <tscct:Id>{member_identification}</tscct:Id>
+                        </tscct:Othr>
+                    </tscct:FinInstnId>
+                </tscct:Agt>
+            </tscct:ChrgsInf>
+            <!-- Payer -->
+            <tscct:Dbtr>
+                <!-- Payer’s Name -->
+                <tscct:Nm>{Nm}</tscct:Nm>
+                <!-- Mailing Address -->
+                <tscct:PstlAdr>
+                    <!-- Street Name -->
+                    <tscct:StrtNm>{StrtNm}</tscct:StrtNm>
+                    <!-- Building Number -->
+                    <tscct:BldgNb>{BldgNb}</tscct:BldgNb>
+                    <!-- Postcode -->
+                    <tscct:PstCd>{PstCd}</tscct:PstCd>
+                    <!-- Town Name -->
+                    <tscct:TwnNm>{TwnNm}</tscct:TwnNm>
+                    <!-- Country Name -->
+                    <tscct:Ctry>{Ctry}</tscct:Ctry>
+                </tscct:PstlAdr>
+            </tscct:Dbtr>
+            <!-- Payer’s Bank -->
+            <tscct:DbtrAgt>
+                <tscct:FinInstnId>
+                    <!-- SFI Member Registered BIC code -->
+                    <tscct:BICFI>{bicfi}</tscct:BICFI>
+                    <tscct:Othr>
+                        <!-- SFI Member Identifier in TKEY7 -->
+                       <tscct:Id>{member_identification}</tscct:Id>
+                    </tscct:Othr>
+                </tscct:FinInstnId>
+            </tscct:DbtrAgt>
+            <!-- Beneficiary’s Bank -->
+            <tscct:CdtrAgt>
+                <tscct:FinInstnId>
+                    <!-- BFI Member Registered BIC code -->
+                    <tscct:BICFI>{bicfi}</tscct:BICFI>
+                    <tscct:Othr>
+                         <!-- BFI Member Identifier in TKEY7 -->
+                        <tscct:Id>{member_identification}</tscct:Id>
+                    </tscct:Othr>
+                </tscct:FinInstnId>
+            </tscct:CdtrAgt>
+            <!-- Beneficiary -->
+            <tscct:Cdtr>
+                <!-- Beneficiary’s Name -->
+                <tscct:Nm>{Nm}</tscct:Nm>
+                <!-- Mailing Address-->
+                <tscct:PstlAdr>
+                    <!-- Street Name -->
+                    <tscct:StrtNm>{StrtNm}</tscct:StrtNm>
+                    <!-- Building Number -->
+                    <tscct:BldgNb>{BldgNb}</tscct:BldgNb>
+                    <!-- Postcode -->
+                    <tscct:PstCd>{PstCd}</tscct:PstCd>
+                    <!-- Town Name -->
+                    <tscct:TwnNm>{TwnNm}</tscct:TwnNm>
+                    <!-- Country Name -->
+                    <tscct:Ctry>{Ctry}</tscct:Ctry>
+                    <!-- Complete Mailing Address -->
+                    <tscct:AdrLine>{AdrLine}</tscct:AdrLine>
+                </tscct:PstlAdr>
+            </tscct:Cdtr>
+            <!-- Payment Point Information -->
+            <tscct:SplmtryData>
+                <!-- constant -->
+                <tscct:PlcAndNm>payment point identification</tscct:PlcAndNm>
+                <tscct:Envlp>
+                    <!-- Payment Point Identifier in TKEY7 -->
+                    <tscct:Id>{payment_point_uuid}</tscct:Id>
+                </tscct:Envlp>
+            </tscct:SplmtryData>
+            <!-- Charges Information -->
+            <tscct:SplmtryData>
+                <!-- constant -->
+                <tscct:PlcAndNm>charge response identification</tscct:PlcAndNm>
+                <tscct:Envlp>
+                    <!-- Unique Identifier the Payment Charges Calculation Request Response -->
+                    <tscct:Id>{request_uuid}</tscct:Id>
+                </tscct:Envlp>
+            </tscct:SplmtryData>
+        </tscct:CdtTrfTxInf>
+    </FIToFICstmrCdtTrf>
+</Message>

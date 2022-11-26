@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Message xmlns="urn:tkeysettlement"
+    xmlns:tscct="urn:iso:std:iso:20022:tech:xsd:pacs.008.001.09"
+    xmlns:head="urn:iso:std:iso:20022:tech:xsd:head.001.001.03">
+    <AppHdr>
+        <head:Fr>
+            <head:FIId>
+                <head:FinInstnId>
+                    <head:BICFI>BLUEUSNY001</head:BICFI>
+                    <head:Othr>
+                        <head:Id>bluebank</head:Id>
+                        <head:Issr>TKEY7</head:Issr>
+                    </head:Othr>
+                </head:FinInstnId>
+            </head:FIId>
+        </head:Fr>
+        <head:To>
+            <head:FIId>
+                <head:FinInstnId>
+                    <head:BICFI>TKEYINTL07X</head:BICFI>
+                    <head:Othr>
+                        <head:Id>tkeymain</head:Id>
+                        <head:Issr>TKEY7</head:Issr>
+                    </head:Othr>
+                </head:FinInstnId>
+            </head:FIId>
+        </head:To>
+        <head:BizMsgIdr>BTKEY20220717BLUEUSNY001B0123456789</head:BizMsgIdr>
+        <head:MsgDefIdr>pacs.008.001.09</head:MsgDefIdr>
+        <head:CreDt>2022-07-17T13:22:01Z</head:CreDt>
+        <Sgntr xmlns="urn:iso:std:iso:20022:tech:xsd:head.001.001.03">
+            <Signature xmlns="http://www.w3.org/2000/09/xmldsig#">
+                <SignedInfo xmlns="http://www.w3.org/2000/09/xmldsig#">
+                    <CanonicalizationMethod xmlns="http://www.w3.org/2000/09/xmldsig#" Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" />
+                    <SignatureMethod xmlns="http://www.w3.org/2000/09/xmldsig#" Algorithm="http://www.w3.org/2009/xmldsig11#rsa-sha256" />
+                    <Reference xmlns="http://www.w3.org/2000/09/xmldsig#">
+                        <Transforms xmlns="http://www.w3.org/2000/09/xmldsig#">
+                            <Transform xmlns="http://www.w3.org/2000/09/xmldsig#" Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" />
+                            <Transform xmlns="http://www.w3.org/2000/09/xmldsig#" Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" />
+                        </Transforms>
+                        <DigestMethod xmlns="http://www.w3.org/2000/09/xmldsig#" Algorithm="http://www.w3.org/2001/04/xmlenc#sha256" />
+                        <DigestValue xmlns="http://www.w3.org/2000/09/xmldsig#">pywI/rz/u+q1LNSlgA8KPoajA69soXOIELTf7Ir0x4w=</DigestValue>
+                    </Reference>
+                </SignedInfo>
+                <SignatureValue xmlns="http://www.w3.org/2000/09/xmldsig#">RgpFV4KL3ug4SDgGvHTTY5DgnnxPJE7HgxmnIh/Z7OVEDJiRzI3yEuOr/jJZ2lDaPCtocw72nA1M8G8SwS0JBA==</SignatureValue>
+                <KeyInfo xmlns="http://www.w3.org/2000/09/xmldsig#">
+                    <X509Data xmlns="http://www.w3.org/2000/09/xmldsig#">
+                        <X509Certificate xmlns="http://www.w3.org/2000/09/xmldsig#">TBGSR67NVA4KH3XBODB4P6JQ6AEZIB73OH2WTBPMAHS7D4EFCKFS6NXN</X509Certificate>
+                    </X509Data>
+                </KeyInfo>
+            </Signature>
+        </Sgntr>
+    </AppHdr>
+    <FIToFICstmrCdtTrf>
+        <tscct:GrpHdr>
+            <tscct:MsgId>20220717USDDSO0123456789BLUEUSNY001</tscct:MsgId>
+            <tscct:CreDtTm>2022-07-17T13:22:01</tscct:CreDtTm>
+            <tscct:NbOfTxs>1</tscct:NbOfTxs>
+            <tscct:SttlmInf>
+                <tscct:SttlmMtd>TDSO</tscct:SttlmMtd>
+                <tscct:SttlmAcct>
+                    <tscct:Id>
+                        <tscct:Othr>
+                            <tscct:Id>bluebank</tscct:Id>
+                        </tscct:Othr>
+                    </tscct:Id>
+                    <tscct:Nm>emission</tscct:Nm>
+                </tscct:SttlmAcct>
+            </tscct:SttlmInf>
+            <tscct:PmtTpInf>
+                <tscct:SvcLvl>
+                    <tscct:Prtry>bluebank</tscct:Prtry>
+                </tscct:SvcLvl>
+            </tscct:PmtTpInf>
+            <tscct:InstgAgt>
+                <tscct:FinInstnId>
+                    <tscct:BICFI>BLUEUSNY001</tscct:BICFI>
+                    <tscct:Othr>
+                        <tscct:Id>bluebank</tscct:Id>
+                    </tscct:Othr>
+                </tscct:FinInstnId>
+            </tscct:InstgAgt>
+            <tscct:InstdAgt>
+                <tscct:FinInstnId>
+                    <tscct:BICFI>GRENCHZZ002</tscct:BICFI>
+                    <tscct:Othr>
+                        <tscct:Id>greenbank</tscct:Id>
+                    </tscct:Othr>
+                </tscct:FinInstnId>
+            </tscct:InstdAgt>
+        </tscct:GrpHdr>
+        <tscct:CdtTrfTxInf>
+            <tscct:PmtId>
+                <tscct:InstrId>USDDSO20220717BLUEUSNY001B123456789</tscct:InstrId>
+                <tscct:EndToEndId>db0a130d58c749e9a884a90b2b47e047</tscct:EndToEndId>
+                <tscct:TxId>73b8eda0fcea4a2f934d2c774639e0eb</tscct:TxId>
+            </tscct:PmtId>
+            <tscct:IntrBkSttlmAmt Ccy="USDDSO">50000</tscct:IntrBkSttlmAmt>
+            <tscct:IntrBkSttlmDt>2022-07-17</tscct:IntrBkSttlmDt>
+            <tscct:InstdAmt Ccy="CHF">48460</tscct:InstdAmt>
+            <tscct:XchgRate>0.9692</tscct:XchgRate>
+            <tscct:ChrgBr>DEBT</tscct:ChrgBr>
+            <tscct:ChrgsInf>
+                <tscct:Amt Ccy="USDDSO">50</tscct:Amt>
+                <tscct:Agt>
+                    <tscct:FinInstnId>
+                        <tscct:BICFI>BLUEUSNY001</tscct:BICFI>
+                        <tscct:Othr>
+                            <tscct:Id>bluebank</tscct:Id>
+                        </tscct:Othr>
+                    </tscct:FinInstnId>
+                </tscct:Agt>
+            </tscct:ChrgsInf>
+            <tscct:Dbtr>
+                <tscct:Nm>COMPANY AAA INC</tscct:Nm>
+                <tscct:PstlAdr>
+                    <tscct:StrtNm>Times Square</tscct:StrtNm>
+                    <tscct:BldgNb>7</tscct:BldgNb>
+                    <tscct:PstCd>10036</tscct:PstCd>
+                    <tscct:TwnNm>New York</tscct:TwnNm>
+                    <tscct:Ctry>US</tscct:Ctry>
+                </tscct:PstlAdr>
+            </tscct:Dbtr>
+            <tscct:DbtrAgt>
+                <tscct:FinInstnId>
+                    <tscct:BICFI>BLUEUSNY001</tscct:BICFI>
+                    <tscct:Othr>
+                        <tscct:Id>bluebank</tscct:Id>
+                    </tscct:Othr>
+                </tscct:FinInstnId>
+            </tscct:DbtrAgt>
+            <tscct:CdtrAgt>
+                <tscct:FinInstnId>
+                    <tscct:BICFI>GRENCHZZ002</tscct:BICFI>
+                    <tscct:Othr>
+                        <tscct:Id>greenbank</tscct:Id>
+                    </tscct:Othr>
+                </tscct:FinInstnId>
+            </tscct:CdtrAgt>
+            <tscct:Cdtr>
+                <tscct:Nm>COMPANY BBB INC</tscct:Nm>
+                <tscct:PstlAdr>
+                    <tscct:StrtNm>HOCHSTRASSE</tscct:StrtNm>
+                    <tscct:BldgNb>27</tscct:BldgNb>
+                    <tscct:PstCd>8022</tscct:PstCd>
+                    <tscct:TwnNm>ZURICH</tscct:TwnNm>
+                    <tscct:Ctry>CH</tscct:Ctry>
+                </tscct:PstlAdr>
+            </tscct:Cdtr>
+            <tscct:SplmtryData>
+                <tscct:PlcAndNm>payment point identification</tscct:PlcAndNm>
+                <tscct:Envlp>
+                    <tscct:Id>9b95c731-c821-4289-a60e-1238affe38d1</tscct:Id>
+                </tscct:Envlp>
+            </tscct:SplmtryData>
+            <tscct:SplmtryData>
+                <tscct:PlcAndNm>charge response identification</tscct:PlcAndNm>
+                <tscct:Envlp>
+                    <tscct:Id>133a1727-0de2-4b06-ba98-bc9ba38d05c1</tscct:Id>
+                </tscct:Envlp>
+            </tscct:SplmtryData>
+        </tscct:CdtTrfTxInf>
+    </FIToFICstmrCdtTrf>
+</Message>

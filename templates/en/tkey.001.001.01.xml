@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Message xmlns="urn:tkeysettlement" 
+   xmlns:tscisn="urn:iso:std:iso:20022:tech:xsd:tkey.001.001.01" 
+   xmlns:head="urn:iso:std:iso:20022:tech:xsd:head.001.001.03">
+   <AppHdr>
+      <head:Fr>
+         <head:FIId>
+            <head:FinInstnId>
+               <!-- Registered BIC Code of the Message Sender -->
+               <head:BICFI>{bicfi}</head:BICFI>
+               <head:Othr>
+                  <!-- Message Sender Member Identifier in TKEY7 -->
+                  <head:Id>{member_identification}</head:Id>
+                  <!-- Issuer -->
+                  <head:Issr>TKEY7</head:Issr>
+               </head:Othr>
+            </head:FinInstnId>
+         </head:FIId>
+      </head:Fr>
+      <head:To>
+         <head:FIId>
+            <head:FinInstnId>
+               <!-- Messaging Point Identifier—constant -->
+               <head:BICFI>TKEYINTL07X</head:BICFI>
+               <head:Othr>
+                  <!-- TKEY7 Identifier in the System—constant -->
+                  <head:Id>tkeymain</head:Id>
+                  <!-- Issuer -->
+                  <head:Issr>TKEY7</head:Issr>
+               </head:Othr>
+            </head:FinInstnId>
+         </head:FIId>
+      </head:To>
+      <!-- Unique Business Message Identifier -->
+      <head:BizMsgIdr>{BizMsgIdr}</head:BizMsgIdr>
+      <!-- Message Identifier—constant -->
+      <head:MsgDefIdr>tkey.001.001.01</head:MsgDefIdr>
+      <!-- Date and Time of Business Message Creation in ISO 8601 Format -->
+      <head:CreDt>{CreDt}</head:CreDt>
+   </AppHdr>
+   <CstmrIdStsNtfctn>
+      <tscisn:GrpHdr>
+         <!-- Unique Message Identifier -->
+         <tscisn:MsgId>{MsgId}</tscisn:MsgId>
+         <!-- Date and Time of Message Creation in ISO 8601 Format -->
+         <tscisn:CreDtTm>{CreDtTm}</tscisn:CreDtTm>
+         <!-- Number of Transactions—constant -->
+         <tscisn:NbOfTxs>1</tscisn:NbOfTxs>
+         <tscisn:SttlmInf>
+            <!-- Settlement Method Identifier -->
+            <tscisn:SttlmMtd>{interbank_settlement_method}</tscisn:SttlmMtd>
+            <tscisn:SttlmAcct>
+               <tscisn:Id>
+                  <tscisn:Othr>
+                     <!-- BFI Member Identifier in TKEY7 -->
+                     <tscisn:Id>{member_identification}</tscisn:Id>
+                  </tscisn:Othr>
+               </tscisn:Id>
+               <!-- BFI Member Digital Account Identifier in TKEY7 -->
+               <tscisn:Nm>{account_identification}</tscisn:Nm>
+            </tscisn:SttlmAcct>
+         </tscisn:SttlmInf>
+         <!-- Instructing Agent -->
+         <tscisn:InstgAgt>
+            <tscisn:FinInstnId>
+               <!-- BFI Member Registered BIC code -->
+               <tscisn:BICFI>{bicfi}</tscisn:BICFI>
+               <tscisn:Othr>
+                  <!-- BFI Member Identifier in TKEY7 -->
+                  <tscisn:Id>{member_identification}</tscisn:Id>
+               </tscisn:Othr>
+            </tscisn:FinInstnId>
+         </tscisn:InstgAgt>
+         <!-- Instructed Agent -->
+         <tscisn:InstdAgt>
+            <tscisn:FinInstnId>
+                <!-- SFI Member Registered BIC code -->
+               <tscisn:BICFI>{bicfi}</tscisn:BICFI>
+               <tscisn:Othr>
+                  <!-- SFI Member Identifier in TKEY7 -->
+                  <tscisn:Id>{member_identification}</tscisn:Id>
+               </tscisn:Othr>
+            </tscisn:FinInstnId>
+         </tscisn:InstdAgt>
+      </tscisn:GrpHdr>
+      <tscisn:AcctInfAndIdSts>
+         <!-- Unique Notification Identifier -->
+         <tscisn:Id>{Id}</tscisn:Id>
+         <tscisn:AcctIdInf>
+            <!-- Account Address Corresponding to the Digital Account Identifier {account_identification} to which the Transfer will be made in the Distributed Ledger -->
+            <tscisn:SttlmAcctId>{distributed_ledger_account_address}</tscisn:SttlmAcctId>
+            <!-- Identification Status of Bank Details of the Ultimate Beneficiary (ACTC, RJCT) -->
+            <tscisn:CstmrAcctIdSts>{CstmrAcctIdSts}</tscisn:CstmrAcctIdSts>
+            <tscisn:PmtId>
+               <!-- Unique Identifier of the Ultimate Beneficiary's Account Identification Instruction -->
+               <tscisn:InstrId>{InstrId}</tscisn:InstrId>
+               <!-- Unique End-To-End Identifier of the Ultimate Beneficiary’s Account Identification -->
+               <tscisn:EndToEndId>{EndToEndId}</tscisn:EndToEndId>
+            </tscisn:PmtId>
+         </tscisn:AcctIdInf>
+         <tscisn:CstmrIdInf>
+            <!-- KYC Identification Status of the Payer and Ultimate Beneficiary (ACTC, RJCT) -->
+            <tscisn:KYCSts>{KYCSts}</tscisn:KYCSts>
+            <!-- AML Identification Status Concerning the Payment (ACTC, RJCT) -->
+            <tscisn:AMLSts>{AMLSts}</tscisn:AMLSts>
+            <tscisn:PmtId>
+               <!-- Unique Instruction Identifier for Identification of the Payer and Ultimate Beneficiary per the Compliance Requirements -->
+               <tscisn:InstrId>{InstrId}</tscisn:InstrId>
+               <!-- Unique End-To-End Identifier for Identification of the Payer and Ultimate Beneficiary per the Compliance Requirements -->
+               <tscisn:EndToEndId>{EndToEndId}</tscisn:EndToEndId>
+            </tscisn:PmtId>
+         </tscisn:CstmrIdInf>
+      </tscisn:AcctInfAndIdSts>
+   </CstmrIdStsNtfctn>
+</Message>

@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Message xmlns="urn:tkeysettlement"
+    xmlns:tspsr="urn:iso:std:iso:20022:tech:xsd:pacs.002.001.11"
+    xmlns:head="urn:iso:std:iso:20022:tech:xsd:head.001.001.03">
+    <AppHdr>
+        <head:Fr>
+            <head:FIId>
+                <head:FinInstnId>
+                    <head:BICFI>TKEYINTL07X</head:BICFI>
+                    <head:Othr>
+                        <head:Id>tkeymain</head:Id>
+                        <head:Issr>TKEY7</head:Issr>
+                    </head:Othr>
+                </head:FinInstnId>
+            </head:FIId>
+        </head:Fr>
+        <head:To>
+            <head:FIId>
+                <head:FinInstnId>
+                    <head:BICFI>BLUEUSNY001</head:BICFI>
+                    <head:Othr>
+                        <head:Id>bluebank</head:Id>
+                        <head:Issr>TKEY7</head:Issr>
+                    </head:Othr>
+                </head:FinInstnId>
+            </head:FIId>
+        </head:To>
+        <head:BizMsgIdr>BTKEY20220718TKEYINTL07XT1491745754</head:BizMsgIdr>
+        <head:MsgDefIdr>pacs.002.001.11</head:MsgDefIdr>
+        <head:CreDt>2022-07-18T13:27:00Z</head:CreDt>
+        <Sgntr xmlns="urn:iso:std:iso:20022:tech:xsd:head.001.001.03">
+            <Signature xmlns="http://www.w3.org/2000/09/xmldsig#">
+                <SignedInfo xmlns="http://www.w3.org/2000/09/xmldsig#">
+                    <CanonicalizationMethod xmlns="http://www.w3.org/2000/09/xmldsig#" Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" />
+                    <SignatureMethod xmlns="http://www.w3.org/2000/09/xmldsig#" Algorithm="http://www.w3.org/2009/xmldsig11#rsa-sha256" />
+                    <Reference xmlns="http://www.w3.org/2000/09/xmldsig#">
+                        <Transforms xmlns="http://www.w3.org/2000/09/xmldsig#">
+                            <Transform xmlns="http://www.w3.org/2000/09/xmldsig#" Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" />
+                            <Transform xmlns="http://www.w3.org/2000/09/xmldsig#" Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" />
+                        </Transforms>
+                        <DigestMethod xmlns="http://www.w3.org/2000/09/xmldsig#" Algorithm="http://www.w3.org/2001/04/xmlenc#sha256" />
+                        <DigestValue xmlns="http://www.w3.org/2000/09/xmldsig#">PxD1clkF+J4IT/cOJL6XmKKo4sgxFS08tgnPeMXBHz8=</DigestValue>
+                    </Reference>
+                </SignedInfo>
+                <SignatureValue xmlns="http://www.w3.org/2000/09/xmldsig#">1uoBwFcA+1XeJftZpPgUx0caP0T2M7bRrLJSljEH01qJt/zSaoIZq6UKW8F8TcbrAWCVhB1CtmcG+K0BQQKcBA==</SignatureValue>
+                <KeyInfo xmlns="http://www.w3.org/2000/09/xmldsig#">
+                    <X509Data xmlns="http://www.w3.org/2000/09/xmldsig#">
+                        <X509Certificate xmlns="http://www.w3.org/2000/09/xmldsig#">TCT4LQXJOYVPQPQX22ANFTDQX6JFXX5TQJEM57MD33JKXG5CEBXZMJYH</X509Certificate>
+                    </X509Data>
+                </KeyInfo>
+            </Signature>
+        </Sgntr>
+    </AppHdr>
+    <FIToFIPmtStsRpt>
+        <tspsr:GrpHdr>
+            <tspsr:MsgId>20220718USDDSA2875706434TKEYINTL07X</tspsr:MsgId>
+            <tspsr:CreDtTm>2022-07-18T13:27:00</tspsr:CreDtTm>
+            <tspsr:InstgAgt>
+                <tspsr:FinInstnId>
+                    <tspsr:BICFI>TKEYINTL07X</tspsr:BICFI>
+                </tspsr:FinInstnId>
+            </tspsr:InstgAgt>
+            <tspsr:InstdAgt>
+                <tspsr:FinInstnId>
+                    <tspsr:BICFI>BLUEUSNY001</tspsr:BICFI>
+                </tspsr:FinInstnId>
+            </tspsr:InstdAgt>
+        </tspsr:GrpHdr>
+        <tspsr:TxInfAndSts>
+            <tspsr:OrgnlEndToEndId>8f01d8db87fa4ef888e223a6f5eef3aa</tspsr:OrgnlEndToEndId>
+            <tspsr:OrgnlTxId>455d2a5faecb4167ad8c1d985588e8e2</tspsr:OrgnlTxId>
+            <tspsr:TxSts>ACTC</tspsr:TxSts>
+            <tspsr:StsRsnInf>
+                <tspsr:Rsn>
+                    <tspsr:Cd>0303</tspsr:Cd>
+                    <tspsr:Prtry>Transaction processed by TKEY7 and successfully registered in the Distributed ledger.</tspsr:Prtry>
+                </tspsr:Rsn>
+            </tspsr:StsRsnInf>
+        </tspsr:TxInfAndSts>
+    </FIToFIPmtStsRpt>
+</Message>
