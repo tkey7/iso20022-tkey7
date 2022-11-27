@@ -67,7 +67,7 @@ Examples of ISO 20022 XML messages and UML diagrams for key scenarios of Members
 
 Directory [`/examples/en/settlement-method-TDSO/`](https://github.com/tkey7/iso20022-tkey7/tree/main/examples/en/settlement-method-TDSO) are examples of ISO 20022 XML messages and UML diagrams related to operations on settlement instruments of the [DSO](https://developer.tkey7.com/docs-glossary/digital-settlement-obligation-dso) asset group.
 
-Directory [`/examples/en/settlement-method-TDSA/`](https://github.com/tkey7/iso20022-tkey7/tree/main/examples/en/settlement-method-TDSA) are examples of ISO 20022 XML messages and UML diagrams related to operations on settlement instruments of the [DSA](https://developer.tkey7.com/docs-glossary/digital-settlement-obligation-dsa) asset group.
+Directory [`/examples/en/settlement-method-TDSA/`](https://github.com/tkey7/iso20022-tkey7/tree/main/examples/en/settlement-method-TDSA) are examples of ISO 20022 XML messages and UML diagrams related to operations on settlement instruments of the [DSA](https://developer.tkey7.com/docs-glossary/digital-settlement-asset-dsa) asset group.
 
 # ISO 20022 Financial Message structures
 
@@ -182,7 +182,7 @@ ISO 20022 financial message structures are available for programming languages:
 │           │   ├── camt.029.001.11.xml
 │           │   ├── camt.056.001.10.xml
 │           │   └── debtor-cancel-payment-dso-reject.jpg
-│           ├── modify-payment-dso
+│           ├── payment-dso-modify
 │           │   ├── camt.026.001.09.xml
 │           │   ├── camt.087.001.08.xml
 │           │   └── payment-dso-modify.jpg

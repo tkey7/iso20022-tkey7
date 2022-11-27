@@ -35,10 +35,10 @@
 
 > [Подробнее об использовании сообщений в этом сценарии.](https://developer.tkey7.com/ru/docs-scenarios/cancel-dso-3)
 
-### modify-payment-dso
-Подкаталог [`/modify-payment-dso`](https://github.com/tkey7/iso20022-tkey7/tree/main/examples/settlement-method-TDSO/modify-payment-dso) содержит набор сообщений, применяемый в процессе изменения платежа с помощью ЦРО.
+### payment-dso-modify
+Подкаталог [`/payment-dso-modify`](https://github.com/tkey7/iso20022-tkey7/tree/main/examples/settlement-method-TDSO/payment-dso-modify) содержит набор сообщений, применяемый в процессе изменения платежа с помощью ЦРО.
 
-> [Подробнее об использовании сообщений в этом сценарии.](https://developer.tkey7.com/ru/docs-scenarios/modify-payment-dso)
+> [Подробнее об использовании сообщений в этом сценарии.](https://developer.tkey7.com/ru/docs-scenarios/payment-dso-modify)
 
 ## Примеры XML-сообщений ISO 20022 ЦРА
 
@@ -96,9 +96,9 @@
 
 * Диаграмма [`creditor-cancel-payment-dso.jpg`](https://github.com/tkey7/iso20022-tkey7/blob/main/examples/settlement-method-TDSO/creditor-cancel-payment-dso/creditor-cancel-payment-dso.jpg) демонстрирует ситуацию отмены платежа по инициативе Финансового учреждения-получателя.
 
-### Изменение платежа ЦРО — modify-payment-dso
+### Изменение платежа ЦРО — payment-dso-modify
 
-* Диаграмма [`modify-payment-dso.jpg`](https://github.com/tkey7/iso20022-tkey7/blob/main/examples/settlement-method-TDSO/modify-payment-dso/modify-payment-dso.jpg) демонстрирует ситуацию изменения местоположения платежа и последующую доставку до конечного Бенефициара.
+* Диаграмма [`payment-dso-modify.jpg`](https://github.com/tkey7/iso20022-tkey7/blob/main/examples/settlement-method-TDSO/payment-dso-modify/payment-dso-modify.jpg) демонстрирует ситуацию изменения местоположения платежа и последующую доставку до конечного Бенефициара.
 
 ### Платёж с помощью ЦРА — payment-dsa
 

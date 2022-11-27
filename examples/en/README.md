@@ -6,7 +6,7 @@ The directory contains ISO 20022 XML message sets and UML diagrams for key scena
 
 Directory [`/examples/en/settlement-method-TDSO/`](https://github.com/tkey7/iso20022-tkey7/tree/main/examples/en/settlement-method-TDSO) are examples of ISO 20022 XML messages and UML diagrams related to operations on settlement instruments of the [DSO](https://developer.tkey7.com/docs-glossary/digital-settlement-obligation-dso) asset group.
 
-Directory [`/examples/en/settlement-method-TDSA/`](https://github.com/tkey7/iso20022-tkey7/tree/main/examples/en/settlement-method-TDSA) are examples of ISO 20022 XML messages and UML diagrams related to operations on settlement instruments of the [DSA](https://developer.tkey7.com/docs-glossary/digital-settlement-obligation-dsa) asset group.
+Directory [`/examples/en/settlement-method-TDSA/`](https://github.com/tkey7/iso20022-tkey7/tree/main/examples/en/settlement-method-TDSA) are examples of ISO 20022 XML messages and UML diagrams related to operations on settlement instruments of the [DSA](https://developer.tkey7.com/docs-glossary/digital-settlement-asset-dsa) asset group.
 
 ## ISO 20022 XML Message Examples—DSO
 
@@ -50,7 +50,7 @@ The [`/payment-dso-modify`](https://github.com/tkey7/iso20022-tkey7/tree/main/ex
 
 ### payment-dsa
 
-The [`/payment-dsa`](https://github.com/tkey7/iso20022-tkey7/tree/main/examples/en/settlement-method-TDSA/en/payment-dsa) subdirectory contains the messages applied in the Payments using the DSA.
+The [`/payment-dsa`](https://github.com/tkey7/iso20022-tkey7/tree/main/examples/en/settlement-method-TDSA/payment-dsa) subdirectory contains the messages applied in the Payments using the DSA.
 
 > [Learn more about using messages in this scenario](https://developer.tkey7.com/docs-scenarios/payment-dsa).
 
@@ -76,7 +76,7 @@ The [`/debtor-cancel-payment-dsa-reject`](https://github.com/tkey7/iso20022-tkey
 
 The [`/creditor-cancel-payment-dsa`](https://github.com/tkey7/iso20022-tkey7/tree/main/examples/en/settlement-method-TDSA/creditor-cancel-payment-dsa) subdirectory contains the messages applied in the DSA Payment Cancelation: Scenario No. 3.
 
-> [Learn more about using messages in this scenario](https://developer.tkey7.com/docs-scenarios/dsa-payment-cancellation-3).
+> [Learn more about using messages in this scenario](https://developer.tkey7.com/docs-scenarios/dsa-payment-cancelation-3).
 
 ### payment-dsa-modify
 
@@ -134,7 +134,7 @@ The directory contains UML diagrams, presented in `.jpg` format, which supplemen
 
 ### DSA Payment Modification—`/payment-dsa-modify`
 
-* The diagram [`payment-dsa-modify.jpg`](https://github.com/tkey7/iso20022-tkey7/blob/main/examples/en/settlement-method-TDSA/modify-payment-dsa/payment-dsa-modify.jpg) demonstrates the modification of Payment location and subsequent delivery to the ultimate Beneficiary.
+* The diagram [`payment-dsa-modify.jpg`](https://github.com/tkey7/iso20022-tkey7/blob/main/examples/en/settlement-method-TDSA/payment-dsa-modify/payment-dsa-modify.jpg) demonstrates the modification of Payment location and subsequent delivery to the ultimate Beneficiary.
 
 # TKEY7 Documentation
 

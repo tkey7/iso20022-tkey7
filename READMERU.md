@@ -180,7 +180,7 @@ TKEY7 поддерживает общепринятые финансовые с�
 │           │   ├── camt.029.001.11.xml
 │           │   ├── camt.056.001.10.xml
 │           │   └── debtor-cancel-payment-dso-reject.jpg
-│           ├── modify-payment-dso
+│           ├── payment-dso-modify
 │           │   ├── camt.026.001.09.xml
 │           │   ├── camt.087.001.08.xml
 │           │   └── payment-dso-modify.jpg

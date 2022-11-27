@@ -50,7 +50,7 @@
 
 ### payment-dsa
 
-Подкаталог [`/payment-dsa`](https://github.com/tkey7/iso20022-tkey7/tree/main/examples/ru/settlement-method-TDSA/en/payment-dsa) содержит набор сообщений, используемых в процессе платёжа с помощью ЦРА.
+Подкаталог [`/payment-dsa`](https://github.com/tkey7/iso20022-tkey7/tree/main/examples/ru/settlement-method-TDSA/payment-dsa) содержит набор сообщений, используемых в процессе платёжа с помощью ЦРА.
 
 > [Подробнее об использовании сообщений в этом сценарии](https://developer.tkey7.com/ru/docs-scenarios/payment-dsa).
 
