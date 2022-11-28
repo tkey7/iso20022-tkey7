@@ -76,7 +76,7 @@
 
 Подкаталог [`/creditor-cancel-payment-dsa`](https://github.com/tkey7/iso20022-tkey7/tree/main/examples/ru/settlement-method-TDSA/creditor-cancel-payment-dsa) содержит набор сообщений, используемых в процессе отмены платежа с помощью ЦРА — сценарий № 3.
 
-> [Подробнее об использовании сообщений в этом сценарии](https://developer.tkey7.com/ru/docs-scenarios/dsa-payment-cancellation-3).
+> [Подробнее об использовании сообщений в этом сценарии](https://developer.tkey7.com/ru/docs-scenarios/dsa-payment-cancelation-3).
 
 ### payment-dsa-modify
 
